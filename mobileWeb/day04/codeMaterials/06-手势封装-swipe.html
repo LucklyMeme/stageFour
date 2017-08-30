@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>swipe手势封装</title>
+</head>
+<body>
+  <!-- 为了显示手势方向-->
+  <div class="result"></div>
+
+  <script>
+    // 功能:封装一个判断手势方向的swipe
+    // 思路:
+          // 1.给document添加事件 touchstart 获取起始点坐标
+          // 2.给document添加事件 touchend   获取终止点的坐标
+          // 3.计算x和y的差值的绝对值 用来判断是水平还是垂直
+          // 4.在水平或者垂直的基础上判断是向左还是向右 或者向上或者向下
+    // 步骤:
+        // 1.声明变量
+        var startX,startY,endX,endY,absX,absY;
+        // 2.给document添加事件 touchstart 
+        document.addEventListener('touchstart',function(ev){
+          var touches = ev.targetTouches[0];
+
+          // 获取起始点坐标
+          startX = touches.clientX;
+          startY = touches.clientY;
+        })
+        // 3.给document添加事件 touchend
+        document.addEventListener('touchend',function(ev){
+          var touches = ev.changedTouches[0];
+
+          // 获取终止点坐标
+          endX =touches.clientX;
+          endY =touches.clientY;
+        // 4.计算x和y的差值的绝对值
+        absX = Math.abs(endX - startX);
+        absY = Math.abs(endY - startY);
+
+
+
+        // 5.判断水平还是垂直
+        // var result =absX > absY ? 'shuiping' : 'chuizhi';
+        // 6.判断是向左还是向右 或者向上或者向下
+          // if(result == 'shuiping'){
+            // 判断是向左还是向右
+            // if(endX > startX ){
+              // document.querySelector('.result').innerHTML = "向右";
+          //   }else {
+          //     document.querySelector('.result').innerHTML = "向左";
+          //   }
+          // }else{
+            // 判断是向上还是向下
+            // if(endY > startY ){
+            //   document.querySelector('.result').innerHTML = "向下";
+            // }else {
+            //   document.querySelector('.result').innerHTML = "向上";
+            // }
+          // }
+
+
+
+          // 换一种方式来做5 和 6
+
+          var result =absX > absY ? 
+           endX > startX ?'向右':'向左': 
+           endY > startY ?'向下':'向上';
+
+           document.querySelector('.result').innerHTML =result;
+        })
+
+
+  </script>
+  
+</body>
+</html>

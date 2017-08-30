@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>轮播图</title>
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    img {
+      width: 100%;
+      /*清除底部3像素*/
+      vertical-align: middle;
+    }
+
+    .view {
+      overflow: hidden;
+    }
+
+    ul {
+      overflow: hidden;
+      position: relative;
+    }
+
+    li {
+      float: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="view">
+    <ul>
+      <li><a href="javascript:;"><img src="./image/0.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/1.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/2.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/3.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/4.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/5.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/6.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
+    </ul>
+  </div>
+
+  <script>
+    // 滚动窗口
+    var view = document.querySelector('.view');
+
+    // 获取首尾元素
+    var firstChild = document.querySelector('.view li:first-child');
+    var lastChild = document.querySelector('.view li:last-child');
+    var slide = document.querySelector('.view ul');
+    var width, size, lis, startX, startY, endX, endY, index = 0, timer;
+
+    // 节流阀
+    var locked = false;
+    function init() {
+      // 将第1个元素添加到结尾
+      slide.appendChild(firstChild.cloneNode(true));
+      // 将最后一个元素添加到首部
+      slide.insertBefore(lastChild.cloneNode(true), firstChild);
+
+      // 获取所有子节点
+      lis = document.querySelectorAll('.view li');
+
+      // 子节点数量
+      size = lis.length;
+
+      // 设置宽度
+      setWidth();
+
+      autoPlay();
+
+      index--;
+      slide.style.left = width * index + 'px';
+
+      // console.log(width);
+
+    }
+
+    function setWidth() {
+      // 获取宽度
+      width = view.clientWidth;
+
+      // 设置ul的宽度
+      slide.style.width = width * size + 'px';
+
+      // 设置li的宽度
+      for (var i = 0; i < size; i++) {
+        lis[i].style.width = width + 'px';
+      }
+    }
+
+    init();
+
+    window.addEventListener('resize', function () {
+      // 设置宽度
+      setWidth();
+    });
+
+    // 
+    view.addEventListener('touchstart', function (ev) {
+
+      clearInterval(timer);
+
+      // 为了使用方便，赋值变量
+      var touches = ev.targetTouches;
+
+      // 判断手指个数
+      if (touches.length > 1) {
+        return;
+      }
+
+      // 获取坐标值
+      startX = touches[0].clientX;
+      startY = touches[0].clientY;
+
+      // console.log(startX, startY);
+    });
+
+    view.addEventListener('touchend', function (ev) {
+      // 开启自动播放
+      autoPlay();
+
+      // 检测节流阀
+      if (locked) {
+        return;
+      }
+
+      // 开启
+      locked = true;
+
+      // 为了使用方便，赋值变量
+      var touches = ev.changedTouches;
+
+      // 判断手指个数
+      if (touches.length > 1) {
+        return;
+      }
+
+      // 获取坐标值
+      endX = touches[0].clientX;
+      endY = touches[0].clientY;
+
+      // 判断手势方向
+      if (endX > startX) {
+        console.log('right');
+
+        // 维护索引
+        index++;
+      } else {
+        console.log('left');
+
+        // 维护索引
+        index--;
+      }
+
+      // 改变ul的坐标
+      slide.style.transition = 'left 0.5s';
+      slide.style.left = width * index + 'px';
+    });
+
+    slide.addEventListener('webkitTransitionEnd', function () {
+  
+      
+      // 关闭
+      locked = false;
+
+      console.log(index);
+      // 左边界
+      if (index == 0) {
+        // 
+        index = -8;
+      }
+      // 右边界
+      if (index == -9) {
+        index = -1;
+      }
+
+      // 取消过渡
+      slide.style.transition = '';
+      // 改变ul坐标
+      slide.style.left = width * index + 'px';
+    });
+
+    function autoPlay() {
+
+      // 
+      timer = setInterval(function () {
+        index--;
+        slide.style.transition = 'left 0.5s';
+        slide.style.left = width * index + 'px';
+      }, 1500);
+    }
+  </script>
+</body>
+
+</html>

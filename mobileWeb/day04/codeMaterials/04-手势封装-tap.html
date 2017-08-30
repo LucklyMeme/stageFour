@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<title>触屏事件</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+		}
+
+		.box {
+			width: 320px;
+			height: 400px;
+			margin: 10px auto;
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+	<script>
+		// 功能: 封装移动端手势--tap
+		// 步骤:
+
+		// 1. 获取元素box
+		var box = document.getElementsByClassName("box")[0];
+		// 2. 定义变量startTx(起始点X轴),startTy(起始点Y轴),endTx(终止点X轴),endTy(终止点Y轴);
+		var startTx, starTy, endTx, endTy;
+		// 3. 给box添加touchstart事件
+		box.addEventListener("touchstart", function (e) {
+			// 4.获取起始点坐标
+			var touches = e.targetTouches[0];
+
+			startTx = touches.clientX;
+			starTy = touches.clientY;
+
+		})
+		// 5. 给box添加touchend事件
+		box.addEventListener("touchend", function (e) {
+			// 6.获取box的终止点坐标
+			var touches = e.changedTouches[0];
+
+			endTx = touches.clientX;
+			endTy = touches.clientY;
+
+			// 7. 计算X轴和Y轴的坐标差的绝对值,并判断值是否小于6,
+			if (Math.abs(endTx - startTx) < 6 && Math.abs(endTy - starTy) < 6) {
+				// console.log("fire Tap Gesture");
+
+				box.innerHTML = "fire Tap Gesture";
+
+			}
+		})
+
+		// bug: 当触点从a点移动到b点,再移动到a点,也会触发Tap手势.
+	</script>
+</body>
+
+</html>

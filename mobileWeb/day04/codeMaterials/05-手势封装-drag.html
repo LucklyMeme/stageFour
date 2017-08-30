@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触屏事件</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #F7F7F7;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .box {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        var box = document.querySelector('.box');
+
+    //   功能:封装drag手势  能通过手指拖拽着元素到处移动
+    //   思路:1.获取手指的起始位置的坐标(touchstart事件中去获取touch对象的client的值)
+    //        2.获取手指的当前位置的坐标(touchmove事件中去获取touch对象的client的值)
+    //        3.获取元素以前的距离顶部和左侧的位置(当前元素的offsetTop offsetLeft)
+    //        4.当前元素位置
+                    // left=开始的left+(当前的位置的X-开始的位置的x)
+                    // top = 开始的top+(当前的位置的y-开始的位置的y)
+
+    // 步骤:
+        // 1.声明全局变量(如果是自己声明的私有变量 请按照规范用_开头声明变量)
+        var startX,startY,currentX,currentY,_left,_top;
+        // 2.给box添加touchstart事件 获取startX startY left top的值
+        box.addEventListener('touchstart',function(ev){
+            var touches = ev.targetTouches[0];
+
+            // 获取手指的起始位置坐标
+            startX =touches.clientX;
+            startY =touches.clientY;
+            // 获取元素的left和top
+            _left = this.offsetLeft;
+            _top  =  this.offsetTop;
+        })
+        // 3.给box添加touchmove事件 获取currentX currentY 
+        box.addEventListener('touchmove',function(ev){
+            var touches = ev.changedTouches[0];
+            // 获取手指的当前位置坐标
+            currentX =touches.clientX;
+            currentY =touches.clientY;
+           // 4.计算元素的当前位置  显示样式
+           this.style.left = _left +(currentX-startX)+'px';
+           this.style.top  = _top + (currentY-startY)+'px';
+        })
+
+    </script>
+</body>
+
+</html>
