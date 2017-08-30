@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>触屏事件对象</title>
 	<style>
 		* {
@@ -63,16 +63,9 @@
 
 		})
 
-
-
 		box.addEventListener("touchmove", function (e) {
 			box.innerHTML = e.targetTouches.length + '========' + e.touches.length;
 		})
-
-
-
-
-
 
 		box.addEventListener("touchend",function(e){
 			box.innerHTML = e.changedTouches.length;
