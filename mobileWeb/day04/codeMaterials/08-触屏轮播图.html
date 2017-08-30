@@ -22,23 +22,21 @@
     }
 
     .carousel {
-      height: 100%;
-      overflow: hidden;
       position: relative;
+      overflow: hidden;
+      /* height: 100%; */
     }
 
     .carousel ul {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       margin: 0;
       padding: 0;
-      height: 100%;
-      overflow: hidden;
       list-style: none;
     }
 
-    .carousel li {
+    .carousel ul li {
       float: left;
     }
 
@@ -50,6 +48,28 @@
     .carousel img {
       width: 100%;
       vertical-align: middle;
+    }
+
+    .carousel ol {
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .carousel ol li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+
+    .carousel ol li.active {
+      background-color: #fff;
     }
   </style>
 </head>
@@ -66,6 +86,16 @@
       <li><a href="javascript:;"><img src="./image/6.png" alt=""></a></li>
       <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
     </ul>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
   </div>
   <script>
     // 功能: 实现移动端轮播图
@@ -73,9 +103,10 @@
     // 1.获取元素div,ul,第一个li,最后一个li
     var carousel = document.querySelector('.carousel');
     var ul = document.querySelector('.carousel ul');
-    var firstLi = document.querySelector(".carousel li:first-child");
-    var lastLi = document.querySelector('.carousel li:last-child');
+    var firstLi = document.querySelector(".carousel ul li:first-child");
+    var lastLi = document.querySelector('.carousel ul li:last-child');
     var locked = false;
+    var points = null;
 
     // 2.声明变量
     var carouselWidth = document.documentElement.clientWidth;
@@ -87,8 +118,8 @@
       ul.insertBefore(lastLi.cloneNode(true), firstLi);
 
       // 4.获取所有li
-      aLi = document.querySelectorAll(".carousel li");
-
+      aLi = document.querySelectorAll(".carousel ul li");
+      points = document.querySelectorAll(".carousel ol li");
 
       // 5.设置carousel ul li 的宽度
       setWidth();
@@ -121,6 +152,7 @@
 
       ul.style.left = index * carouselWidth + 'px';
       ul.style.transition = "";
+      changePoint();
     })
 
     // 9.给轮播图添加手指滑动
@@ -136,7 +168,7 @@
 
     ul.addEventListener('touchend', function (e) {
 
-      if(locked == true ) {
+      if (locked == true) {
         return false;
       }
 
@@ -150,11 +182,11 @@
 
       if (endTx - startTx > 0) {
         // 向右滑
-        index ++;
+        index++;
 
       } else {
         // 向左滑
-        index --;
+        index--;
 
       }
 
@@ -183,7 +215,21 @@
 
         ul.style.left = index * carouselWidth + 'px';
         ul.style.transition = "all 1s";
+        
       }, 1500);
+    }
+
+  //  
+    function changePoint() {
+      for(var i =0;i<points.length;i++){
+        points[i].classList.remove("active");
+      }
+
+
+      points[-(index)-1].classList.add("active");
+
+      
+      
     }
   </script>
 </body>
