@@ -30,7 +30,7 @@
 		// 1. 获取元素box
 		var box = document.getElementsByClassName("box")[0];
 		// 2. 定义变量startTx(起始点X轴),startTy(起始点Y轴),endTx(终止点X轴),endTy(终止点Y轴);
-		var startTx, starTy, endTx, endTy;
+		var startTx, starTy, endTx, endTy,startTime,endTime;
 		// 3. 给box添加touchstart事件
 		box.addEventListener("touchstart", function (e) {
 			// 4.获取起始点坐标
@@ -38,6 +38,8 @@
 
 			startTx = touches.clientX;
 			starTy = touches.clientY;
+
+			startTime = new Date().getTime();
 
 		})
 		// 5. 给box添加touchend事件
@@ -47,6 +49,13 @@
 
 			endTx = touches.clientX;
 			endTy = touches.clientY;
+
+			endTime = new Date().getTime();
+
+			console.log(endTime-startTime);
+			if(endTime-startTime > 500) {
+				return false;
+			}
 
 			// 7. 计算X轴和Y轴的坐标差的绝对值,并判断值是否小于6,
 			if (Math.abs(endTx - startTx) < 6 && Math.abs(endTy - starTy) < 6) {

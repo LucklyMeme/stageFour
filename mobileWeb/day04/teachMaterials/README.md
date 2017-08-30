@@ -23,7 +23,7 @@
   >  pageX/Y 手指相对于layout viewport的水平/垂直像素距离（包含滚动）
 
   >  screenX/Y 手指相对于layout viewport的水平/垂直像素距离（包含滚动）
-
+  
   #### 移动端手势介绍
   ![移动端手势](./images/mobileGesture.jpg)
   #### 手势封装

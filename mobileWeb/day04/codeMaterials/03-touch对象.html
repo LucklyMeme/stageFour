@@ -3,7 +3,9 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0,">
+	<!-- 这个viewport设置 pageX Y 是错误的 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"> -->
 	<title>触屏事件</title>
 	<style>
 		body {
@@ -13,14 +15,15 @@
 		}
 
 		ul {
+			position: fixed;
+			top: 0;
+			left: 0;
 			width: 100%;
 			padding: 0;
 			margin: 0;
 			list-style: none;
 			background-color: #CCC;
-			position: fixed;
-			top: 0;
-			left: 0;
+
 		}
 
 		li {
@@ -86,6 +89,8 @@
 		// 综上: clientX/Y获取的是 触点相对于可视区的X/Y坐标(不包含滚动)
 		// 			 pageX/Y获取的是   触点相对于HTML文档左边沿的的X/Y坐标(包含滚动)
 		// 			 screenX/Y获取的是 返回触点相对于屏幕左边沿的的X/Y坐标. 不包含页面滚动的偏移量.
+
+		// 细节: 如果想要clientX/Y pageX/Y正确的结果 ,要写全 viewport设置,如果写不全,那么不会得到正确的结果
 	</script>
 </body>
 

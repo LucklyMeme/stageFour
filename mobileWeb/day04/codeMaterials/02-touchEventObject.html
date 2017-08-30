@@ -36,37 +36,38 @@
 		// 1.如何查看某个事件的所有信息
 		//   打印该事件的事件对象
 
-		// box.addEventListener("click",function(e){
-		// console.log(e);
+		box.addEventListener("click",function(e){
+		console.log(e);
 		// 通过打印点击事件的事件对象,我们可以知道,当我们点击完box可以获取所有和点击事件有关的信息
-		// })
+		})
 
 
 		// 2.给box添加touch事件
 
-		// box.addEventListener("touchstart", function (e) {
+		box.addEventListener("touchstart", function (e) {
 			// 通过打印touchstart的事件对象 我们同样也可以看到关于触摸开始的一些信息
-			// console.log(e);
+			console.log(e);
 
 
 			// 获取触摸元素上有多少个触点
-			// box.innerHTML = e.targetTouches.length;
+			box.innerHTML = e.targetTouches.length;
 
 			// 获取屏幕上有多少个触点
 			// 从屏幕外往屏幕里开始触摸
-			// box.innerHTML = e.targetTouches.length + '========' + e.touches.length;
+			box.innerHTML = e.targetTouches.length + '========' + e.touches.length;
 
-			// 总结: targetTouches 代表的是绑定事件的元素上有几个触点
-			//       touches       代表的是屏幕上总共有几个触点  
+			// 总结: targetTouches  代表的是绑定事件的元素上有几个触点
+			//       touches        代表的是屏幕上总共有几个触点  
+			//			 changedTouches 相对于上一次状态（进入目标元素、离开目标元素、在目标元素上发生了移动）
+			//											发生了改变的触摸点的集合
 
-		// })
+		})
 
 
 
-		// box.addEventListener("touchmove", function (e) {
-
-		// 	box.innerHTML = e.targetTouches.length + '========' + e.touches.length;
-		// })
+		box.addEventListener("touchmove", function (e) {
+			box.innerHTML = e.targetTouches.length + '========' + e.touches.length;
+		})
 
 
 
@@ -74,7 +75,7 @@
 
 
 		box.addEventListener("touchend",function(e){
-			box.innerHTML = e.targetTouches.length + '========' + e.touches.length+"=========="+ e.changedTouches.length;
+			box.innerHTML = e.changedTouches.length;
 			// 通过在touchend事件中获取触点个数,我们可以知道: 
 			// 如果元素上有两个触点,且在最后同时离开 ,那么 targetTouches和touches都没有值,但 changedTouches 会保留两个触点信息
 			// 如果元素上有多个点,且在最后都是依次离开,那么targetTouches和touches都没有值,但 changedTouches 只会保留最后一个触点的信息
