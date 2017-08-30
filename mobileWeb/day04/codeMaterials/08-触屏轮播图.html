@@ -3,43 +3,59 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>轮播图</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端轮播图</title>
   <style>
+    /* 让手指触摸上的元素不要出现蓝色背景 */
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
     body {
-      padding: 0;
       margin: 0;
-    }
-
-    ul {
       padding: 0;
-      margin: 0;
-      list-style: none;
-    }
-
-    img {
       width: 100%;
-      /*清除底部3像素*/
-      vertical-align: middle;
+      height: 100%;
     }
 
-    .view {
-      overflow: hidden;
-    }
-
-    ul {
+    .carousel {
+      height: 100%;
       overflow: hidden;
       position: relative;
     }
 
-    li {
+    .carousel ul {
+      position: absolute;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      list-style: none;
+    }
+
+    .carousel li {
       float: left;
+    }
+
+    .carousel a {
+      display: block;
+      width: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      vertical-align: middle;
     }
   </style>
 </head>
 
 <body>
-  <div class="view">
+  <div class="carousel">
     <ul>
       <li><a href="javascript:;"><img src="./image/0.png" alt=""></a></li>
       <li><a href="javascript:;"><img src="./image/1.png" alt=""></a></li>
@@ -51,155 +67,122 @@
       <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
     </ul>
   </div>
-
   <script>
-    // 滚动窗口
-    var view = document.querySelector('.view');
-
-    // 获取首尾元素
-    var firstChild = document.querySelector('.view li:first-child');
-    var lastChild = document.querySelector('.view li:last-child');
-    var slide = document.querySelector('.view ul');
-    var width, size, lis, startX, startY, endX, endY, index = 0, timer;
-
-    // 节流阀
+    // 功能: 实现移动端轮播图
+    // 步骤:
+    // 1.获取元素div,ul,第一个li,最后一个li
+    var carousel = document.querySelector('.carousel');
+    var ul = document.querySelector('.carousel ul');
+    var firstLi = document.querySelector(".carousel li:first-child");
+    var lastLi = document.querySelector('.carousel li:last-child');
     var locked = false;
+
+    // 2.声明变量
+    var carouselWidth = document.documentElement.clientWidth;
+    var aLi, timer, startTx, endTx, index = 0;
+    // console.log(carouselWidth);
+    // 3.初始化页面(给第一个li前面添加最后一个li,给最后一个li后面添加第一个li);
     function init() {
-      // 将第1个元素添加到结尾
-      slide.appendChild(firstChild.cloneNode(true));
-      // 将最后一个元素添加到首部
-      slide.insertBefore(lastChild.cloneNode(true), firstChild);
+      ul.appendChild(firstLi.cloneNode(true));
+      ul.insertBefore(lastLi.cloneNode(true), firstLi);
 
-      // 获取所有子节点
-      lis = document.querySelectorAll('.view li');
+      // 4.获取所有li
+      aLi = document.querySelectorAll(".carousel li");
 
-      // 子节点数量
-      size = lis.length;
 
-      // 设置宽度
+      // 5.设置carousel ul li 的宽度
       setWidth();
 
-      autoPlay();
-
+      // 6.修正li的显示顺序(第一个应该是图片1,不是图片7)
       index--;
-      slide.style.left = width * index + 'px';
+      ul.style.left = index * carouselWidth + 'px';
 
-      // console.log(width);
-
-    }
-
-    function setWidth() {
-      // 获取宽度
-      width = view.clientWidth;
-
-      // 设置ul的宽度
-      slide.style.width = width * size + 'px';
-
-      // 设置li的宽度
-      for (var i = 0; i < size; i++) {
-        lis[i].style.width = width + 'px';
-      }
+      // 7.自动轮播
+      autoPlay();
     }
 
     init();
 
-    window.addEventListener('resize', function () {
-      // 设置宽度
-      setWidth();
-    });
+    // 8.检测ul的位移 防止出现空白
+    ul.addEventListener('webkitTransitionEnd', function () {
 
-    // 
-    view.addEventListener('touchstart', function (ev) {
-
-      clearInterval(timer);
-
-      // 为了使用方便，赋值变量
-      var touches = ev.targetTouches;
-
-      // 判断手指个数
-      if (touches.length > 1) {
-        return;
-      }
-
-      // 获取坐标值
-      startX = touches[0].clientX;
-      startY = touches[0].clientY;
-
-      // console.log(startX, startY);
-    });
-
-    view.addEventListener('touchend', function (ev) {
-      // 开启自动播放
-      autoPlay();
-
-      // 检测节流阀
-      if (locked) {
-        return;
-      }
-
-      // 开启
-      locked = true;
-
-      // 为了使用方便，赋值变量
-      var touches = ev.changedTouches;
-
-      // 判断手指个数
-      if (touches.length > 1) {
-        return;
-      }
-
-      // 获取坐标值
-      endX = touches[0].clientX;
-      endY = touches[0].clientY;
-
-      // 判断手势方向
-      if (endX > startX) {
-        console.log('right');
-
-        // 维护索引
-        index++;
-      } else {
-        console.log('left');
-
-        // 维护索引
-        index--;
-      }
-
-      // 改变ul的坐标
-      slide.style.transition = 'left 0.5s';
-      slide.style.left = width * index + 'px';
-    });
-
-    slide.addEventListener('webkitTransitionEnd', function () {
-  
-      
-      // 关闭
       locked = false;
 
-      console.log(index);
-      // 左边界
+      // 如果索引为0;
       if (index == 0) {
-        // 
+
         index = -8;
+
       }
-      // 右边界
-      if (index == -9) {
+
+      if (index <= -9) {
         index = -1;
       }
 
-      // 取消过渡
-      slide.style.transition = '';
-      // 改变ul坐标
-      slide.style.left = width * index + 'px';
-    });
+      ul.style.left = index * carouselWidth + 'px';
+      ul.style.transition = "";
+    })
+
+    // 9.给轮播图添加手指滑动
+    ul.addEventListener('touchstart', function (e) {
+
+      // 清除定时器
+      clearInterval(timer);
+
+      var touches = e.targetTouches[0];
+
+      startTx = touches.clientX;
+    })
+
+    ul.addEventListener('touchend', function (e) {
+
+      if(locked == true ) {
+        return false;
+      }
+
+      locked = true;
+
+      var touches = e.changedTouches[0];
+
+      endTx = touches.clientX;
+
+      // 10.判断用户滑动的方式,改变轮播的索引
+
+      if (endTx - startTx > 0) {
+        // 向右滑
+        index ++;
+
+      } else {
+        // 向左滑
+        index --;
+
+      }
+
+      ul.style.left = index * carouselWidth + 'px';
+      ul.style.transition = "all 1s";
+
+      autoPlay();
+    })
+
+
+    function setWidth() {
+
+      carousel.style.width = carouselWidth + 'px';
+
+      ul.style.width = aLi.length * carouselWidth + 'px';
+
+      for (var i = 0; i < aLi.length; i++) {
+        aLi[i].style.width = carouselWidth + 'px';
+      }
+
+    }
 
     function autoPlay() {
-
-      // 
       timer = setInterval(function () {
         index--;
-        slide.style.transition = 'left 0.5s';
-        slide.style.left = width * index + 'px';
+
+        ul.style.left = index * carouselWidth + 'px';
+        ul.style.transition = "all 1s";
       }, 1500);
     }
   </script>
