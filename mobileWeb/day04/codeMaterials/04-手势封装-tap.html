@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,49 +24,49 @@
 <body>
 	<div class="box"></div>
 	<script>
-		// 功能: 封装移动端手势--tap
+		// 功能: 封装移动端手势--tap(点击)
+		// 思路: 在touchstart的时候获取一个位置 如果和 在touchend的时候获取的位置差不多那么就可以认为时tap手势
 		// 步骤:
-
-		// 1. 获取元素box
-		var box = document.getElementsByClassName("box")[0];
-		// 2. 定义变量startTx(起始点X轴),startTy(起始点Y轴),endTx(终止点X轴),endTy(终止点Y轴);
-		var startTx, starTy, endTx, endTy,startTime,endTime;
-		// 3. 给box添加touchstart事件
-		box.addEventListener("touchstart", function (e) {
-			// 4.获取起始点坐标
+		// 1.获取box元素
+		var box = document.querySelector('.box');
+		// 2.声明全局变量
+		var startTx, startTy, endTx, endTy,startTime,endTime;
+		// 2.给box添加touchstart事件 以获取起始点的位置
+		box.addEventListener('touchstart', function (e) {
 			var touches = e.targetTouches[0];
-
+			// console.log(touches);
 			startTx = touches.clientX;
-			starTy = touches.clientY;
+			startTy = touches.clientY;
 
+			// 获取开始时间
 			startTime = new Date().getTime();
-
+			// console.log(startTime);
 		})
-		// 5. 给box添加touchend事件
+		// 3.给box添加touchend事件 以获取结束点的位置
 		box.addEventListener("touchend", function (e) {
-			// 6.获取box的终止点坐标
 			var touches = e.changedTouches[0];
 
 			endTx = touches.clientX;
 			endTy = touches.clientY;
 
+			// 获取结束时间
 			endTime = new Date().getTime();
 
-			console.log(endTime-startTime);
-			if(endTime-startTime > 500) {
+			// console.log(endTime-startTime);
+
+			// bug: 当手指从a移动到b 又移动到a 这时候 坐标没有发生变化 因此出现bug
+			// 解决: 使用时间 判断时间是否大于100 如果大于100 那么代表你肯定走了一段距离 
+			if(endTime-startTime > 100) {
+				// console.log(1);
 				return false;
 			}
 
-			// 7. 计算X轴和Y轴的坐标差的绝对值,并判断值是否小于6,
-			if (Math.abs(endTx - startTx) < 6 && Math.abs(endTy - starTy) < 6) {
-				// console.log("fire Tap Gesture");
-
-				box.innerHTML = "fire Tap Gesture";
-
+			// 4.要计算 X轴的差的绝对值 和Y的差的绝对值 是否小于 6   如果小于6 那么就触发tap手势
+			if (Math.abs(endTx - startTx) < 6 && Math.abs(endTy - startTy) < 6) {
+				console.log("tap 手势触发了");
+			
 			}
 		})
-
-		// bug: 当触点从a点移动到b点,再移动到a点,也会触发Tap手势.
 	</script>
 </body>
 
