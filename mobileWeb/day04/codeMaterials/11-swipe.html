@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>swipe</title>
+  <style>
+    .swipe {
+      overflow: hidden;
+      visibility: hidden;
+      position: relative;
+    }
+
+    .swipe-wrap {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .swipe-wrap > li {
+      float: left;
+      width: 100%;
+      position: relative;
+    }
+    html,body,ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    ul {
+      list-style: none;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+    }
+
+    img {
+      width: 100%;
+      vertical-align: middle;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!-- 结构是swipe要求的 id和class只需一样 标签无所谓 -->
+  <div id='slider' class='swipe'>
+    <ul class='swipe-wrap'>
+      <li><a href="javascript:;"><img src="./image/0.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/1.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/2.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/3.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/4.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/5.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/6.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
+    </ul>
+  </div>
+  <!-- 引入swipe库 -->
+  <script src="./js/swipe.js"></script>
+
+  <script>
+    window.mySwipe = new Swipe(document.getElementById('slider'), {
+      // 默认开始的索引是0 可以改变成别的
+      // startSlide: 0,
+      speed: 400,
+      auto: 1500,
+      continuous: true,
+      disableScroll: true
+    });
+  </script>
+</body>
+
+</html>

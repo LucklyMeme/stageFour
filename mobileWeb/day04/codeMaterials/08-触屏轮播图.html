@@ -167,7 +167,8 @@
     })
 
     ul.addEventListener('touchend', function (e) {
-
+      // autoPlay()方法放置在此处是为了解决双击停止轮播的问题
+      autoPlay();
       if (locked == true) {
         return false;
       }
@@ -192,8 +193,8 @@
 
       ul.style.left = index * carouselWidth + 'px';
       ul.style.transition = "all 1s";
-
-      autoPlay();
+      // 放在此处 会出现双击停止轮播的情况 ,因此把该方法的调用移至该函数的最上面
+      // autoPlay();
     })
 
 
