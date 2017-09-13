@@ -1,0 +1,221 @@
+html,body {
+  width: 100%;
+  height: 100%;
+}
+.jdm {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  /* height: 100%;
+  background-color: red; */
+}
+
+/* 顶部搜索 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(201, 21, 35, 1);
+  z-index: 999;
+}
+
+
+
+header .search {
+  width: 100%;
+  height: 100%;
+  padding-left: 66px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+header .search .search-icon {
+  position: absolute;
+  top: 10px;
+  left: 75px;
+  width: 20px;
+  height: 30px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: -60px -109px;
+}
+
+header .search input {
+  margin-top: 5px;
+  padding-left: 35px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid #fff;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+header .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 22px;
+  padding: 9px 5px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: 0 -109px;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+
+header .login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* 底部菜单 方案1 */
+/* .menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;
+}
+
+.menu ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu li {
+  float: left; 
+  width: 20%;
+  height: 100%;
+}
+
+.menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu img {
+  height: 100%;
+  width: auto;
+} */
+
+/* 底部菜单 方案2 */
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;  
+}
+
+.menu ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.menu li {
+  flex: 1;
+  /* float: left;  */
+  /* width: 20%; */
+  height: 100%;
+}
+
+
+.menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu img {
+  height: 100%;
+  width: auto;
+}
+
+
+main {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 轮播图 */
+.slide  {
+  width: 100%;
+}
+
+.slide ul {
+  width: 100%;
+}
+
+.slide li {
+  width: 100%;
+}
+
+.slide a {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/* 导航 */
+.nav {
+  width: 100%;
+  background-color: #fff;
+}
+
+.nav ul {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 8px;
+}
+
+.nav li {
+  float: left;
+  width: 25%;
+  /* margin: 10px 0; */
+  margin-top: 8px;
+}
+
+.nav a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.nav img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav b {
+  display: block;
+  font-weight: normal;
+  margin-top: 2px;
+}
