@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- 下面的代码的含义: 改变layoutviewport也就是html的大小,用来解决移动端网页出现滚动条及缩放的情况 -->
+  <!-- viewport代表视口,  content中的 width=device-width 代表设置viewport的宽度为设备宽度
+        initial-scale 代表当页面载入之后 初始缩放比是1 以下是标准格式 无论是开发pc端还是开发移动的 都写上就好啦
+  -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- device-width 就是chrome浏览器查的设备宽度 -->
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+  <title>Document</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .box {
+      width: 375px;
+      height: 200px;
+      background-color: blue;
+      text-align: center;
+      line-height: 200px;
+      font-size: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">8</div>
+</body>
+
+</html>

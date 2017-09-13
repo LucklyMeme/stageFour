@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>关于百分比</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+		}
+
+		.yeye {
+			width: 210px;
+			height: 210px;
+		}
+		.box {
+			width: 100px;
+			height: 200px;
+			margin: 50px auto;
+			border: 1px solid #CCC;
+		}
+
+		.inner {
+			/* 宽高相对的是父级的宽高 */
+			width: 110px;
+			height: 120px;
+
+			/* padding相对的是父级的宽 */
+			padding: 50%;
+
+			/* margin相对的是父级的宽 */
+			margin: 50%;
+			background-color: hotpink;
+
+			/* border是不能写百分比 */
+			border: 5% solid #ccc;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="yeye">
+	<div class="box">
+		<div class="inner"></div>
+	</div>
+</div>
+</body>
+
+</html>
