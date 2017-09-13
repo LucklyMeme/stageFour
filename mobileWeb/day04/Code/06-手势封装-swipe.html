@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>swipe手势封装</title>
+</head>
+
+<body>
+  <!-- 手势方向包括:向上,向下,向左,向右,用result这个元素来显示结果 -->
+  <h1 class="result"></h1>
+
+  <script>
+    // 功能: 封装手势,用来判断手指滑动方向
+    // 步骤:
+    // 1.声明变量  startTx,startTy,endTx,endTy,absTx,absTy
+    var startTx, startTy, endTx, endTy, absTx, absTy,direction;
+    // 2.给document绑定touchstart 以获取startTx,startTy
+    document.addEventListener('touchstart', function (e) {
+      var touches = e.targetTouches[0];
+
+      startTx = touches.clientX;
+      startTy = touches.clientY;
+    })
+    // 3.给document绑定touchend 以获取endTx,endTy
+    document.addEventListener('touchend', function (e) {
+      var touches = e.changedTouches[0];
+
+      endTx = touches.clientX;
+      endTy = touches.clientY;
+
+      // 4.计算X轴位移的绝对值 计算Y轴的位移的绝对值
+      absTx = Math.abs(endTx - startTx);
+      absTy = Math.abs(endTy - startTy);
+      // 去除掉x和y一样的值的情况
+      if (absTx == absTy) {
+        return false;
+      }
+
+      // 方案1 普通的if
+      // var flag = absTx - absTy  >0;
+      // console.log(flag);
+      // // 5.判断水平还是垂直
+      // if (absTx - absTy > 0) {
+      //   console.log('水平');
+        // 6.判断向左还是向右
+      //   if (endTx - startTx > 0) {
+      //     console.log('向右');
+      //   } else {
+      //     console.log('向左');
+      //   }
+
+      // } else {
+        // 7.判断向上还是向下
+      //   console.log('垂直');
+      //   if (endTy - startTy > 0) {
+      //     console.log('向下');
+      //   } else {
+      //     console.log('向上');
+      //   }
+      // }
+
+        direction = absTx > absTy ? 
+        endTx > startTx ? '向右':'向左' :
+        endTy > startTy ? '向下':'向上' ;
+
+        console.log(direction);
+
+
+
+    })
+  </script>
+</body>
+
+</html>

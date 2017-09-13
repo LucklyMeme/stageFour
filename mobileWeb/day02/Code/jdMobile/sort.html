@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>京东分类</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/sort.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+  <!-- 分类布局容器 -->
+  <div class="jdc">
+    <!-- 顶部搜索 -->
+    <header>
+      <!-- 返回按钮 -->
+      <a class="back" href="javascript:;"></a>
+      <!-- 搜索框 -->
+      <div class="search-box">
+        <input type="text" placeholder="花王在日本直采，京东全球购自营">
+      </div>
+      <!-- 菜单按钮 -->
+      <a class="menu" href="JavaScript:;"></a>
+    </header>
+    <!-- 主要内容 -->
+    <main>
+      <!-- 左侧分类列表 -->
+      <aside id="wrapper">
+        <ul>
+          <li class="active">热门推荐</li>
+          <li>潮流女装</li>
+          <li>品牌男装</li>
+          <li>个护化妆</li>
+          <li>电脑办公</li>
+          <li>手机数码</li>
+          <li>母婴童装</li>
+          <li>图书</li>
+          <li>家具家纺</li>
+          <li>居家生活</li>
+          <li>家具建材</li>
+          <li>食品生鲜</li>
+          <li>酒水饮料</li>
+          <li>运动户外</li>
+          <li>鞋靴礼品</li>
+          <li>奢侈礼品</li>
+          <li>珠宝钟表</li>
+          <li>玩具乐器</li>
+          <li>内衣配饰</li>
+          <li>汽车用品</li>
+          <li>音像制品</li>
+          <li>医药保健</li>
+          <li>计生情趣</li>
+          <li>京东金融</li>
+          <li>生活旅行</li>
+          <li>宠物农资</li>
+        </ul>
+      </aside>
+      <!-- 右侧内容 -->
+      <article>
+        <div class="hotsale">
+          <h4>热门推荐</h4>
+          <ul>
+            <li>手机</li>
+            <li>笔记本</li>
+            <li>空调</li>
+            <li>收纳用品</li>
+            <li>炒锅</li>
+            <li>奶粉</li>
+            <li>吸顶灯</li>
+            <li>儿童文学</li>
+          </ul>
+        </div>
+
+        <div class=" sale-girl">
+          <h4>热门导购</h4>
+          <ul>
+            <li>
+              <a href="javascript:;">
+                  <img src="./upload/sort_1.jpg" alt="">
+                  <span>国际品牌</span>
+              </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                  <img src="./upload/sort_2.jpg" alt="">
+                  <span>JD FOR</span>
+                </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                  <img src="./upload/sort_3.jpg" alt="">
+                  <span>精品女装</span>
+                </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class=" sale-girl">
+          <h4>热门品类</h4>
+          <ul>
+            <li>
+              <a href="javascript:;">
+                    <img src="./upload/sort_1.jpg" alt="">
+                    <span>国际品牌</span>
+                </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                    <img src="./upload/sort_2.jpg" alt="">
+                    <span>JD FOR</span>
+                  </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                    <img src="./upload/sort_3.jpg" alt="">
+                    <span>精品女装</span>
+                  </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                      <img src="./upload/sort_1.jpg" alt="">
+                      <span>国际品牌</span>
+                  </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                      <img src="./upload/sort_2.jpg" alt="">
+                      <span>JD FOR</span>
+                    </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                      <img src="./upload/sort_3.jpg" alt="">
+                      <span>精品女装</span>
+                    </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                        <img src="./upload/sort_1.jpg" alt="">
+                        <span>国际品牌</span>
+                    </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                        <img src="./upload/sort_2.jpg" alt="">
+                        <span>JD FOR</span>
+                      </a>
+            </li>
+            <li>
+              <a href="javascript:;">
+                        <img src="./upload/sort_3.jpg" alt="">
+                        <span>精品女装</span>
+                      </a>
+            </li>
+          </ul>
+        </div>
+      </article>
+    </main>
+  </div>
+  <!-- 为什么要用iscorll -->
+  <!-- 原因: 在我们的移动的网站上 出现滚动条的时候  滚动条滑动的时候比较迟钝 生涩
+             因此我们需要一个和手机上的原生滚动一样的效果  有弹性 然后还有惯性
+  -->
+  <script src="./js/iscroll.js"></script>
+  <script>
+    // 在左侧的分类列表 能出现滚动条
+
+    // #wrapper 是超出内容的父元素的父元素
+    // mouseWheel 是否支持鼠标滚轮
+    // scrollbars 是否显示滚动条
+    var myScroll = new IScroll('#wrapper', {
+      mouseWheel: true,
+      scrollbars: false
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>移动端轮播图</title>
+  <style>
+    /* 让手指触摸上的元素不要出现蓝色背景 */
+
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .carousel ul {
+      position: relative;
+      top: 0;
+      left: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .carousel ul li {
+      float: left;
+    }
+
+    .carousel a {
+      display: block;
+      width: 100%;
+    }
+
+    .carousel img {
+      width: 100%;
+      vertical-align: middle;
+    }
+
+    .carousel ol {
+      position: absolute;
+      left: 0;
+      bottom: 10px;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      text-align: center;
+    }
+
+    .carousel ol li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: #ccc;
+    }
+
+    .carousel ol li.active {
+      background-color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="carousel">
+    <ul>
+      <li><a href="javascript:;"><img src="./image/0.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/1.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/2.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/3.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/4.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/5.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/6.png" alt=""></a></li>
+      <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
+    </ul>
+    <ol>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ol>
+  </div>
+  <script>
+    // 功能: 实现移动端轮播图
+    // 步骤:
+    // 1.获取元素div,ul,第一个li,最后一个li
+    var carousel = document.querySelector('.carousel');
+    var ul = document.querySelector('.carousel ul');
+    var firstLi = document.querySelector(".carousel ul li:first-child");
+    var lastLi = document.querySelector('.carousel ul li:last-child');
+    var locked = false;
+    var points = null;
+
+    // 2.声明变量
+    var carouselWidth = document.documentElement.clientWidth;
+    var aLi, timer, startTx, endTx, index = 0;
+    // console.log(carouselWidth);
+    // 3.初始化页面(给第一个li前面添加最后一个li,给最后一个li后面添加第一个li);
+    function init() {
+      ul.appendChild(firstLi.cloneNode(true));
+      ul.insertBefore(lastLi.cloneNode(true), firstLi);
+
+      // 4.获取所有li
+      aLi = document.querySelectorAll(".carousel ul li");
+      points = document.querySelectorAll(".carousel ol li");
+
+      // 5.设置carousel ul li 的宽度
+      setWidth();
+
+      // 6.修正li的显示顺序(第一个应该是图片1,不是图片7)
+      index--;
+      ul.style.left = index * carouselWidth + 'px';
+
+      // 7.自动轮播
+      autoPlay();
+    }
+
+    init();
+
+    // 8.检测ul的位移 防止出现空白
+    ul.addEventListener('webkitTransitionEnd', function () {
+
+      locked = false;
+
+      // 如果索引为0;
+      if (index == 0) {
+
+        index = -8;
+
+      }
+
+      if (index <= -9) {
+        index = -1;
+      }
+
+      ul.style.left = index * carouselWidth + 'px';
+      ul.style.transition = "";
+      changePoint();
+    })
+    // ul.addEventListener('click',function(){
+    //   return;
+    // })
+    // 9.给轮播图添加手指滑动
+    ul.addEventListener('touchstart', function (e) {
+      // console.log(1);
+      // 清除定时器
+      clearInterval(timer);
+
+      var touches = e.targetTouches[0];
+
+      startTx = touches.clientX;
+    })
+
+    ul.addEventListener('touchend', function (e) {
+    //  console.log(2);
+    autoPlay();// autoplay()方法的位置问题
+    console.log(locked);
+      if (locked == true) {
+        return false;
+      }
+
+      locked = true;
+
+      var touches = e.changedTouches[0];
+
+      endTx = touches.clientX;
+
+      // 10.判断用户滑动的方式,改变轮播的索引
+
+      if (endTx - startTx > 0) {
+        // 向右滑
+        index++;
+
+      } else {
+        // 向左滑
+        index--;
+
+      }
+
+      ul.style.left = index * carouselWidth + 'px';
+      ul.style.transition = "all 1s";
+
+
+    })
+
+
+    function setWidth() {
+
+      carousel.style.width = carouselWidth + 'px';
+
+      ul.style.width = aLi.length * carouselWidth + 'px';
+
+      for (var i = 0; i < aLi.length; i++) {
+        aLi[i].style.width = carouselWidth + 'px';
+      }
+
+    }
+
+    function autoPlay() {
+      timer = setInterval(function () {
+        index--;
+
+        ul.style.left = index * carouselWidth + 'px';
+        ul.style.transition = "all 1s";
+        
+      }, 1500);
+    }
+
+  //  
+    function changePoint() {
+      for(var i =0;i<points.length;i++){
+        points[i].classList.remove("active");
+      }
+
+
+      points[-(index)-1].classList.add("active");
+
+      
+      
+    }
+  </script>
+</body>
+
+</html>

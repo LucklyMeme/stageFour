@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>rem布局原理</title>
+  <style>
+    /* 这个设计图 宽度是: 640px  分成20份  一份是32px*/
+
+    /* 我们测得的box 宽度和高度同时都是16px */
+
+    @media screen and (device-width: 320px) {
+        html {
+          /* 把一个320px宽的屏幕分成20份 */
+          /* font-size: 320px/20; */
+          font-size: calc(320px / 20);
+        }
+    }
+
+    @media screen and (device-width: 360px) {
+        html {
+          /* 把一个360px宽的屏幕分成20份 */
+          font-size: calc(360px / 20);
+        }
+    }
+
+    .box {
+      /* width: (16rem/32); */
+      /* height: (16rem/32); */
+
+      /* width: 16/32*1*rem; */
+
+      /* 所以 */
+      width: 0.5rem;
+      height:0.5rem;
+      background-color: hotpink;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

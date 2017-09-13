@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>触屏事件</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+
+		.box {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 100px;
+			height: 100px;
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+
+	<script>
+		// 功能: 实现移动端手指拖拽
+		// 步骤:
+		// 1.获取box元素
+		var box = document.querySelector(".box");
+		// 2.设置变量 startTx,startTy,endTx,endTy,_left,_top
+		var startTx, startTy, endTx, endTy, _left, _top;
+		// 3.要给box添加touchstart事件 获取起始点的触点的坐标 获取距离顶部的距离和获取距离左侧的距离
+		box.addEventListener('touchstart', function (e) {
+			var touches = e.targetTouches[0];
+
+			startTx = touches.clientX;
+			startTy = touches.clientY;
+
+			_left = this.offsetLeft;
+			_top = this.offsetTop;
+			// console.log(_left,_top);
+		});
+		// 4.要给box添加touchmove事件  获取结束点的触点的坐标
+		box.addEventListener('touchmove', function (e) {
+			var touches = e.changedTouches[0];
+
+			endTx = touches.clientX;
+			endTy = touches.clientY;
+
+			// 5.给box设置样式(top值和left的值) = 以前的top和left+ 触点坐标的差值  
+
+			this.style.left = _left + (endTx - startTx)  + 'px';
+			this.style.top = _top + (endTy - startTy) + 'px';
+		})
+	</script>
+</body>
+
+</html>

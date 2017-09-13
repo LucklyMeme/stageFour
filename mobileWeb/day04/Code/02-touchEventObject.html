@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>触屏事件对象</title>
+	<style>
+
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+			overflow: hidden;
+		}
+
+		.box {
+			width: 320px;
+			height: 400px;
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+	<script>
+		var box = document.querySelector('.box');
+
+
+		// 如何获得点击元素事件的信息呢?
+		// 所有的关于事件的信息都存储在事件对象里
+
+		box.addEventListener('click',function(e){
+			console.log(e);
+		})
+
+
+		// 给box添加touch事件 ,我们来获取 触点的个数
+	
+		// 给box绑定 touchstart 
+		box.addEventListener('touchstart',function(e){
+			console.log(e);
+
+			// 检测当手指在元素上触摸的时候  在屏幕上的触点的个数都是一样的
+			//  touches 代表屏幕上有几个触点
+			// targetTouches 代表绑定事件的元素上有几个触点
+			this.innerHTML = e.touches.length +'======='+ e.targetTouches.length+'======='+e.changedTouches.length;
+		})
+
+		// 给box绑定touchmove事件
+		box.addEventListener("touchmove",function(e){
+			console.log(e)
+			this.innerHTML = e.touches.length +'======='+ e.targetTouches.length+"=========="+e.changedTouches.length
+		})
+
+		// 给box绑定touchend事件
+		box.addEventListener("touchend",function(e){
+			console.log(e)
+			this.innerHTML = e.touches.length +'======='+ e.targetTouches.length+"=========="+e.changedTouches.length
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>触屏事件</title>
+	<style>
+		body {
+			padding: 0;
+			margin: 0;
+			background-color: #F7F7F7;
+		}
+
+		.box {
+			width: 320px;
+			height: 400px;
+			margin: 10px auto;
+			background-color: pink;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box"></div>
+	<script>
+		// 功能: 封装移动端手势--tap(点击)
+		// 思路: 在touchstart的时候获取一个位置 如果和 在touchend的时候获取的位置差不多那么就可以认为时tap手势
+		// 步骤:
+		// 1.获取box元素
+		var box = document.querySelector('.box');
+		// 2.声明全局变量
+		var startTx, startTy, endTx, endTy,startTime,endTime;
+		var num =0;
+		// 2.给box添加touchstart事件 以获取起始点的位置
+		box.addEventListener('touchstart', function (e) {
+			var touches = e.targetTouches[0];
+			// console.log(touches);
+			startTx = touches.clientX;
+			startTy = touches.clientY;
+
+			// 获取开始时间
+			startTime = new Date().getTime();
+			// console.log(startTime);
+		})
+		// 3.给box添加touchend事件 以获取结束点的位置
+		box.addEventListener("touchend", function (e) {
+			var touches = e.changedTouches[0];
+
+			endTx = touches.clientX;
+			endTy = touches.clientY;
+
+			// 获取结束时间
+			endTime = new Date().getTime();
+
+			// console.log(endTime-startTime);
+
+			// bug: 当手指从a移动到b 又移动到a 这时候 坐标没有发生变化 因此出现bug
+			// 解决: 使用时间 判断时间是否大于100 如果大于100 那么代表你肯定走了一段距离 
+			if(endTime-startTime > 500) {
+				// console.log(1);
+				return false;
+			}
+
+			// 4.要计算 X轴的差的绝对值 和Y的差的绝对值 是否小于 6   如果小于6 那么就触发tap手势
+			if (Math.abs(endTx - startTx) < 6 && Math.abs(endTy - startTy) < 6) {
+				num++;
+				// console.log("tap 手势触发了");
+				box.innerHTML = "tap 触发了"+num;
+			
+			}
+		})
+	</script>
+</body>
+
+</html>

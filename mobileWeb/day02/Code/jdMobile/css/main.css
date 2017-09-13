@@ -1,0 +1,720 @@
+html,body {
+  width: 100%;
+  height: 100%;
+}
+.jdm {
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+  /* height: 100%;
+  background-color: red; */
+}
+
+/* 顶部搜索 */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: rgba(201, 21, 35, 1);
+  z-index: 999;
+}
+
+
+
+header .search {
+  width: 100%;
+  height: 100%;
+  padding-left: 66px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+header .search .search-icon {
+  position: absolute;
+  top: 10px;
+  left: 75px;
+  width: 20px;
+  height: 30px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: -60px -109px;
+}
+
+header .search input {
+  margin-top: 5px;
+  padding-left: 35px;
+  width: 100%;
+  height: 30px;
+  border: 1px solid #fff;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 15px;
+  font-size: 14px;
+}
+
+header .logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 56px;
+  height: 22px;
+  padding: 9px 5px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: 0 -109px;
+  background-origin: content-box;
+  background-clip: content-box;
+}
+
+header .login {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 50px;
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  line-height: 40px;
+}
+
+/* 底部菜单 方案1 */
+/* .menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;
+}
+
+.menu ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.menu li {
+  float: left; 
+  width: 20%;
+  height: 100%;
+}
+
+.menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu img {
+  height: 100%;
+  width: auto;
+} */
+
+/* 底部菜单 方案2 */
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 44px;
+  background-color: #fff;  
+}
+
+.menu ul {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+}
+
+.menu li {
+  flex: 1;
+  /* float: left;  */
+  /* width: 20%; */
+  height: 100%;
+}
+
+
+.menu a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.menu img {
+  height: 100%;
+  width: auto;
+}
+
+
+main {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 400px;
+}
+
+/* 轮播图 */
+.slide  {
+  width: 100%;
+}
+
+.slide ul {
+  width: 100%;
+}
+
+.slide li {
+  width: 100%;
+}
+
+.slide a {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/* 导航 */
+.nav {
+  width: 100%;
+  background-color: #fff;
+}
+
+.nav ul {
+  width: 100%;
+  overflow: hidden;
+  padding-bottom: 8px;
+}
+
+.nav li {
+  float: left;
+  width: 25%;
+  /* margin: 10px 0; */
+  margin-top: 8px;
+}
+
+.nav a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.nav img {
+  width: 40px;
+  height: 40px;
+}
+
+.nav b {
+  display: block;
+  font-weight: normal;
+  margin-top: 2px;
+}
+
+
+/* 秒杀 */
+.spike {
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 5px;
+  background-color: #fff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.spike-title {
+  width: 100%;
+  line-height: 1;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.spike-title h4 {
+  float: left; 
+  font-size: 15px;
+  color: #C91523;
+  font-weight: normal;
+  line-height: 1;
+  position: relative;
+  padding-left: 21px;
+}
+
+.spike-title h4:before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 20px;
+  height: 26px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: -84px -107px;
+}
+
+.spike-title .spike-time {
+  float: left;
+  margin-left: 5px;
+  overflow: hidden;
+}
+
+.spike-title .spike-time span {
+  display: block;
+  float: left;
+  font-size: 13px;
+  line-height: 1.2;
+  background-color:  #000;
+  color: #fff;
+  padding: 1px 0;
+}
+
+.spike-title .spike-time span:nth-child(3n) {
+  color: #333;
+  background-color: transparent;
+  margin: 0 2px;
+}
+
+.spike-title .spike-time span:nth-child(3n+1) {
+  padding-left: 2px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.spike-title .spike-time span:nth-child(3n+2) {
+  padding-right: 2px;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
+.spike-title .spike-more {
+  float: right;
+  line-height: 1.5;
+  padding-right: 10px;
+  position: relative;
+}
+
+.spike-title .spike-more:after {
+  content: '';
+  position: absolute;
+  top:2px;
+  right: 0;
+  width: 7px;
+  height: 12px;
+  background-image: url("../images/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: -186px -51px;
+}
+
+.spike-content {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.spike-content ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.spike-content li {
+  float: left;
+  width: 33.33333%;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.spike-content a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  position: relative;
+}
+
+.spike-content img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.spike-content i {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 4px 5px;
+  border-radius: 50%;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 1;
+  background-color: orange;
+}
+
+.spike-content .price {
+  width: 100%;
+}
+
+.spike-content .price span {
+  display: block;
+  text-align: center;
+  line-height: 18px;
+}
+
+.spike-content .price .new {
+  font-size: 14px;
+  color: #C91523;
+  margin-top: 5px;
+}
+
+.spike-content .price .old {
+  font-size: 12px;
+  color: #666;
+  text-decoration: line-through;
+}
+
+/* 活动 */
+.activity {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.activity > img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.activity ul {
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.activity li {
+  width: 50%;
+  float: left;
+}
+
+.activity a {
+  width: 100%;
+
+}
+
+.activity img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+/* 主营 */
+.major {
+  width: 100%;
+}
+
+.major ul {
+  width: 100%;
+}
+
+.major li {
+  width: 100%;
+  overflow: hidden;
+}
+
+.major a {
+  display: block;
+  float: left;
+}
+
+.major img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.major li:first-child a {
+  display: block;
+  width: 33.3333333%;
+}
+
+.major li:not(:first-child) a {
+  display: block;
+  width: 50%;
+}
+
+/* 广告 */
+.advert {
+  width: 100%;
+  padding: 8px;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
+}
+
+.advert img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+/* 超市 */
+.market {
+  width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+
+.market h3 {
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  /* padding-left: 20px; */
+  color: #C91523;
+  font-weight: normal;
+}
+
+
+.market ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.market li {
+  width: 50%;
+  float: left;
+}
+
+.market a {
+  display: block;
+  width: 100%;
+}
+
+.market img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+
+/* 主题街 */
+.theme {
+  width: 100%;
+  padding: 0 8px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+
+.theme h3 {
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  /* padding-left: 20px; */
+  color: #C91523;
+  font-weight: normal;
+}
+
+.theme ul {
+  width: 100%;
+  overflow: hidden;
+}
+
+.theme li {
+  float: left;
+  overflow: hidden;
+}
+
+.theme a {
+  display: block;
+}
+
+.theme img {
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.theme li:first-child {
+  width: 50%;
+}
+
+.theme li:nth-child(2) {
+  width: 50%;
+}
+
+.theme li:nth-child(3) {
+  width: 50%;
+}
+
+.theme li:nth-child(3) a {
+  float: left;
+  width: 50%;
+}
+
+.theme li:last-child {
+  width: 100%;
+}
+
+.theme li:last-child  a {
+  float: left;
+  width: 25%;
+}
+
+
+/* 品牌推荐 */
+.brand {
+  width: 100%;
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+
+
+.brand h3 {
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  padding-left: 8px;
+  color: #C91523;
+  font-weight: normal;
+}
+
+.brand ul {
+  width: 100%;
+}
+
+.brand li {
+  width: 100%;
+  overflow: hidden;
+}
+
+.brand a {
+  float: left;
+  display: block;
+  width: 30%;
+}
+
+.brand a:nth-child(1)  {
+  width: 40%;
+}
+
+.brand img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+/* 猜你喜欢 */
+.guess {
+  width: 100%;
+  padding: 0 8px;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+
+.guess .guess-title {
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  overflow: hidden;
+}
+
+.guess-title h3 {
+  float: left;
+  font-size: 16px;
+  color: #333;
+  font-weight: normal;
+}
+
+.guess-title .guess-login {
+  float: right;
+  font-size: 13px;
+  line-height: 34px;
+  color: #C91523;
+}
+
+
+.guess-content {
+  width: 100%;
+  overflow: hidden;
+}
+
+.guess-content .item {
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+  /* box-shadow: 0 0 1px #ccc; */
+}
+
+.guess-content .item:nth-child(2n+1) {
+  padding-right: 5px;
+}
+.guess-content .item:nth-child(2n) {
+  padding-left: 5px;
+}
+
+
+.item .pic {
+  display: block;
+  width: 100%;
+}
+
+.item .pic img {
+  width: 100%;
+  vertical-align: middle;
+}
+
+.item .desc {
+  width: 100%;
+  height: 40px;
+  line-height: 20px;
+  overflow: hidden;
+  /* 让出现省略号 */
+  text-overflow: ellipsis;
+  /* 让盒子变成伸缩容器
+   display:flex 这句话是新语法
+  在伸缩布局这 一共有三种语法: 新语法 混合语法 旧语法
+  */
+  display: -webkit-box;
+  /* 让文字显示2行 */
+  -webkit-line-clamp: 2;
+
+  /* 设置让文字竖向排版 类似于 flex-direction */
+  -webkit-box-orient: vertical;
+  margin-bottom: 5px;
+}
+
+.guess-bottom {
+  height: 30px;
+  border-top: 1px solid #ccc;
+  line-height: 30px;
+}
+
+.guess-bottom .price {
+  float: left;
+  color: #C91523;
+  font-size: 13px;
+}
+
+.guess-bottom .see-like {
+  margin-top: 5px;
+  float: right;
+  color: #999;
+  border: 1px solid #999;
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 1px 3px;
+  line-height: 1.2;
+
+}
+
+
+
+
