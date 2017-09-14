@@ -27,13 +27,13 @@
 
     2.项目追加知识点
       2.1 新增CSS3中的滤镜特性
-      2.1 新增学习使用全屏滚动插件jqueryfullpage.js实现全屏滚动
-      2.2 新增使用动画增强插件jqueryeasings.js让动画多样化
+      2.2 新增学习使用全屏滚动插件jqueryfullpage.js实现全屏滚动
+      2.3 新增使用动画增强插件jqueryeasings.js让动画多样化
 
     3.项目实用技巧
       3.1 在工作中遇到难以实现的功能,解决的思路及方法
       3.2 在工作中学习使用插件的方法
-      3.1 在工作中,应该减少用JavaScript或jQuery操作样式.
+      3.3 在工作中,应该减少用JavaScript或jQuery操作样式.
 
 > 项目开发环境搭建
 
