@@ -1,0 +1,107 @@
+/* 模块一: 标题 */
+
+.qbh-title {
+  position: relative;
+  background-image: url("../img/qbh-title-bg.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.qbh-title .name {
+  position: absolute;
+  right: 20%;
+  bottom: 580px;
+}
+
+.qbh-title .extra {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 150px;
+}
+
+.qbh-title .sofa {
+  position: absolute;
+  bottom: 329px;
+  left: 50%;
+  margin-left: -200px;
+}
+
+
+/* 模块二: 商品列表 */
+
+.qbh-list {
+  position: relative;
+  background-image: url("../img/qbh-list-bg.png");
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+
+.qbh-list .desc {
+  position: absolute;
+  bottom: 500px;
+  left: 50%;
+  margin-bottom: 50px;
+  margin-left: -180px;
+}
+
+.qbh-list .desc img {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+}
+
+.qbh-list .screen {
+  width: 990px;
+  height: 500px;
+  position: absolute;
+  bottom: -3px;
+  left: 50%;
+  margin-left: -495px;
+}
+
+.qbh-list .screen .search-box {
+  position: absolute;
+  bottom: 300px;
+  /* right: -30px; */
+  right:  370px;
+  width: 222px;
+  height: 45px;
+  background-image: url("../img/qbh-list-search-box.png");
+  background-repeat: no-repeat;
+  /* display: none; */
+}
+
+.qbh-list .search-box img {
+  position: relative;
+  left: 70px;
+  font-size: 1.6em;
+  letter-spacing: 10px;
+  /* opacity: 0; */
+}
+
+.qbh-list .screen .list-search {
+  position: absolute;
+  right: 370px;
+  bottom: 300px;
+  display: none;
+}
+
+
+
+.qbh-list .screen .sofa-pic {
+  position: absolute;
+  left: 395px;
+  bottom: 335px;
+  width: 100px;
+  z-index: 10;
+  display: none;
+}
+
+.qbh-list .screen .list-sofas {
+  position: absolute;
+  bottom: 217px;
+  right: 270px;
+  height: 100px;
+  display: none;
+}

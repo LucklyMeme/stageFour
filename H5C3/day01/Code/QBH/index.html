@@ -13,12 +13,31 @@
 </head>
 
 <body>
-  <main class="fullage">
+  <main class="fullage" id="fullpage">
     <!-- 模块一: 标题 title-->
-    <section class="section qbh-title"></section>
+    <section class="section qbh-title">
+      <img class="name" src="img/qbh-title.png">
+      <img class="extra" src="img/qbh-title-extra.png">
+      <img class="sofa" src="img/qbh-title-sofa.png">
+    </section>
 
     <!-- 模块二: 商品列表 list -->
-    <section class="section qbh-list"></section>
+    <section class="section qbh-list">
+      <!-- 描述 -->
+      <div class="desc">
+        <img src="./img/qbh-list-worda.png" alt="">
+        <img src="./img/qbh-list-wordb.png" alt="">
+      </div>
+      <!-- 屏幕 -->
+      <div class="screen">
+        <div class="search-box">
+          <img src="./img/qbh-list-search-font.png" alt="">
+        </div>
+        <img class="list-search" src="./img/qbh-list-search.png" alt="">
+        <img class="sofa-pic" src="./img/qbh-list-sofa-pic.png" alt="">
+        <img class="list-sofas" src="./img/qbh-list-sofas.png" alt="">
+      </div>
+    </section>
 
     <!-- 模块三: 选购  buy -->
     <section class="section qbh-buy"></section>
@@ -44,7 +63,7 @@
   <!-- 引入增强动画过渡过程插件 -->
   <script src="./js/jquery.easings.min.js"></script>
   <!-- 引入全屏滚动插件 -->
-  <scirpt src="./js/jquery.fullPage.min.js"></scirpt>
+  <script src="./js/jquery.fullPage.min.js"></script>
   <!-- 引入该页面的JavaScript文件 -->
   <script src="./js/qbh.js"></script>
 </body>
