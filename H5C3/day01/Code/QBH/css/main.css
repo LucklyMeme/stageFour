@@ -11,6 +11,8 @@
   position: absolute;
   right: 20%;
   bottom: 580px;
+
+  animation: animationTitle 3s infinite linear;
 }
 
 .qbh-title .extra {
@@ -25,9 +27,31 @@
   bottom: 329px;
   left: 50%;
   margin-left: -200px;
+
+  animation: animationSofa 1.5s infinite linear;
 }
 
 
+@keyframes animationSofa {
+  50% {
+    bottom: 350px;
+  }
+  100% {
+    bottom: 330px;
+  }
+}
+
+@keyframes animationTitle {
+    0% {
+        bottom: 580px
+    }
+    50% {
+        bottom: 520px
+    }
+    100% {
+        bottom: 580px
+    }
+}
 /* 模块二: 商品列表 */
 
 .qbh-list {
