@@ -99,29 +99,37 @@ $(document).ready(function () {
       }
 
       // 第六屏动画
-      if(index == 5 && nextIndex == 6) {
+      if (index == 5 && nextIndex == 6) {
         $(".qbh-payment .qbh-payment-sofa-end-continue").show().animate({
-          "bottom" : -240,
+          "bottom": -240,
           "width": 80
-        },1100)
+        }, 1100)
         $(".qbh-delivery  .qbh-delivery-box").show().animate({
           "bottom": 440,
           "left": 318
-        },1300,function(){
+        }, 1300, function () {
           $(".qbh-payment .qbh-payment-sofa-end-continue").hide();
           $(".qbh-delivery  .qbh-delivery-box").animate({
-            "bottom" : 37,
+            "bottom": 37,
             "left": 559
-          },1000,function(){
+          }, 1000, function () {
             $(".qbh-delivery  .qbh-delivery-box").hide()
             $(".qbh-delivery").animate({
-              "backgroundPositionX":'100%'
-            },2000)
+              "backgroundPositionX": '100%'
+            }, 2000,function(){
+              $(".qbh-delivery .qbh-delivery-deliveryman").show().animate({
+                "height":'200%'
+              },500,function(){
+                $(".qbh-delivery .qbh-delivery-deliveryman").animate({
+                  "right": -120
+                },800)
+              })
+            })
           })
         })
 
 
-      } 
+      }
     }
   });
 });

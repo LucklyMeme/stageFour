@@ -430,7 +430,7 @@
   width: 221px;
   height: 122px;
   left: 50%;
-  margin-left: -110px;
+  margin-left: -208px;
   bottom:0;
 }
 
@@ -440,6 +440,14 @@
   right: -20px;
 }
 
+.qbh-delivery .qbh-delivery-deliveryman {
+  position: absolute;
+  bottom: 116px;
+  right: 81px;
+  height: 5px;
+  display: none;
+
+}
 @keyframes deliveryCloud {
   0% {
     left: 20%;
