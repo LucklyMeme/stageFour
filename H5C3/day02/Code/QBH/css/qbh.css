@@ -326,3 +326,130 @@
     left: 50%;
   }
 }
+
+
+/* 第五屏 */
+.qbh-payment {
+  background-image: url("../image/qbh-payment-bg.png");
+  position: relative;
+}
+
+.qbh-payment .qbh-payment-font {
+  position: absolute;
+  top: 0;
+  left: 20%;
+}
+
+.qbh-payment .qbh-payment-bill {
+  position: absolute;
+  bottom: 270px;
+  left: 27%;
+  z-index: 1;
+}
+
+.qbh-payment .qbh-payment-cards {
+  position: absolute;
+  bottom: 200px;
+  left: 20%;
+  z-index: 2;
+}
+
+.qbh-payment .qbh-payment-sofa-start {
+  position: absolute;
+  left: 25%;
+  bottom: 590px;
+  z-index: 1;
+  display: none;
+}
+
+.qbh-payment .qbh-payment-sofa-end,.qbh-payment .qbh-payment-sofa-end-continue {
+  position: absolute;
+  left: 25%;
+  bottom: 70px;
+  z-index: 1;
+  display: none;
+}
+
+.qbh-payment .qbh-payment-mouse-start,.qbh-payment .qbh-payment-mouse-end{
+  position: absolute;
+  right: 20%;
+  bottom: 200px;
+}
+
+.qbh-payment .qbh-payment-mouse-end {
+  opacity: 0;
+}
+
+.qbh-payment .qbh-payment-hands {
+  position: absolute;
+  right: 24%;
+  bottom: -375px;
+  z-index: 30;
+  /* display: none; */
+}
+
+/* 第六屏 */
+.qbh-delivery {
+  background-image:url("../image/qbh-delivery-bg.png");
+  background-repeat: no-repeat;
+  background-position: 25% 100%;
+  position: relative;
+}
+
+.qbh-delivery .qbh-delivery-cloud-one {
+  position: absolute;
+  top: 40px;
+  left:20%;
+
+  animation: deliveryCloud 30s linear infinite;
+}
+
+.qbh-delivery .qbh-delivery-cloud-two {
+  position: absolute;
+  top: 40px;
+  right:20%;
+
+  animation: deliveryCloud 50s linear infinite;
+}
+
+.qbh-delivery  .qbh-delivery-box {
+  position: absolute;
+  bottom: 300px;
+  left: 30px;
+  display: none;
+  z-index: 1;
+
+  /* 
+    bottom: 530px;
+    left: 354px;
+  */
+}
+
+.qbh-delivery  .qbh-delivery-goods {
+  position: absolute;
+  width: 221px;
+  height: 122px;
+  left: 50%;
+  margin-left: -110px;
+  bottom:0;
+}
+
+.qbh-delivery  .qbh-delivery-truck-font {
+  position: absolute;
+  top: -56px;
+  right: -20px;
+}
+
+@keyframes deliveryCloud {
+  0% {
+    left: 20%;
+  }
+
+  50% {
+    left: 50%
+  }
+
+  100% {
+    left: 20%;
+  }
+}

@@ -42,7 +42,7 @@ $(document).ready(function () {
           "bottom": -(wHeight - 250),
           "right": 518,
           "width": 204
-        }, 1000,function(){
+        }, 1000, function () {
           $(".qbh-buy .qbh-buy-choose-end").animate({
             "opacity": 1
           })
@@ -53,20 +53,20 @@ $(document).ready(function () {
       }
 
       // 第三屏和第四屏动画
-      if(index == 3 && nextIndex == 4) {
+      if (index == 3 && nextIndex == 4) {
         $(".qbh-list .qbh-list-sofa-pic").hide();
         $(".qbh-buy .qbh-buy-rotate-sofa").show().animate({
-          "bottom": -((wHeight- 250)+50),
+          "bottom": -((wHeight - 250) + 50),
           "right": 260
-        },1000,function(){
+        }, 1000, function () {
           $(".qbh-buy .qbh-buy-rotate-sofa").hide();
           $(".qbh-info .qbh-info-rotate-sofa ").show();
           $(".qbh-info .qbh-info-cart-box").animate({
-            "left": 2000 
-          },1500,function(){
+            "left": 2000
+          }, 1500, function () {
             $(".qbh-info .qbh-info-address").animate({
               "opacity": 1
-            },1000,function(){
+            }, 1000, function () {
               $(".qbh-info .qbh-info-wordb").animate({
                 "opacity": 1
               })
@@ -76,6 +76,51 @@ $(document).ready(function () {
             })
           })
         });
+      }
+
+      // 第五屏动画
+      if (index == 4 && nextIndex == 5) {
+        $(".qbh-payment .qbh-payment-hands").animate({
+          "bottom": 0
+        }, 2000, function () {
+          $('.qbh-payment .qbh-payment-mouse-end').animate({
+            "opacity": 1
+          }, 500, function () {
+            $(".qbh-payment .qbh-payment-sofa-start").show().animate({
+              "bottom": 230
+            }, 500, function () {
+              $(".qbh-payment .qbh-payment-sofa-end").show();
+              $(".qbh-payment .qbh-payment-bill").animate({
+                "bottom": 360
+              })
+            })
+          })
+        })
+      }
+
+      // 第六屏动画
+      if(index == 5 && nextIndex == 6) {
+        $(".qbh-payment .qbh-payment-sofa-end-continue").show().animate({
+          "bottom" : -240,
+          "width": 80
+        },1100)
+        $(".qbh-delivery  .qbh-delivery-box").show().animate({
+          "bottom": 440,
+          "left": 318
+        },1300,function(){
+          $(".qbh-payment .qbh-payment-sofa-end-continue").hide();
+          $(".qbh-delivery  .qbh-delivery-box").animate({
+            "bottom" : 37,
+            "left": 559
+          },1000,function(){
+            $(".qbh-delivery  .qbh-delivery-box").hide()
+            $(".qbh-delivery").animate({
+              "backgroundPositionX":'100%'
+            },2000)
+          })
+        })
+
+
       } 
     }
   });
