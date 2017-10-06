@@ -5,66 +5,88 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>QBH</title>
-  <!-- 引入清除浏览器默认样式表 -->
+  <title>千百汇购物网站</title>
+  <!-- 引入默认样式 -->
   <link rel="stylesheet" href="./css/reset.css">
-  <!-- 引入本页面所需样式表 -->
-  <link rel="stylesheet" href="./css/main.css">
+  <!-- 引入页面的样式 -->
+  <link rel="stylesheet" href="./css/qbh.css">
+  <!-- 假设该文件中有导航小圆点的样式 -->
+  <!-- <link rel="stylesheet" href="./demo/fullpage.css"> -->
 </head>
 
 <body>
-  <main class="fullage" id="fullpage">
-    <!-- 模块一: 标题 title-->
-    <section class="section qbh-title">
-      <img class="name" src="img/qbh-title.png">
-      <img class="extra" src="img/qbh-title-extra.png">
-      <img class="sofa" src="img/qbh-title-sofa.png">
-    </section>
-
-    <!-- 模块二: 商品列表 list -->
-    <section class="section qbh-list">
-      <!-- 描述 -->
-      <div class="desc">
-        <img class="desc-worda" src="./img/qbh-list-worda.png" alt="">
-        <img class="desc-wordb" src="./img/qbh-list-wordb.png" alt="">
-      </div>
-      <!-- 屏幕 -->
-      <!-- <div class="screen">
-        <div class="search-box">
-          <img src="./img/qbh-list-search-font.png" alt="">
+  <a href="javascript:;" class="shopping-center">
+    <img src="./image/shoppingcenter.png" alt="">
+  </a>
+  <div id="fullpage">
+    <!-- 第一屏 -->
+    <div class="section qbh-title">
+      <img class="qbh-title-extra" src="./image/qbh-title-extra.png" alt="">
+      <!-- 跳动的沙发 -->
+      <img class="qbh-title-sofa" src="./image/qbh-title-sofa.png" alt="">
+      <!-- 网站名称 -->
+      <img class="qbh-title-name" src="./image/qbh-title-name.png" alt="">
+    </div>
+    <!-- 第二屏 -->
+    <div class="section qbh-list">
+      <!--列表宣传语 -->
+      <img class="qbh-list-worda" src="./image/qbh-list-worda.png" alt="">
+      <img class="qbh-list-wordb" src="./image/qbh-list-wordb.png" alt="">
+      <div class="qbh-list-computer">
+        <!-- 搜索 -->
+        <div class="qbh-list-search">
+          <img class="qbh-list-search-font" src="./image/qbh-list-search-font.png" alt="">
         </div>
-        <img class="list-search" src="./img/qbh-list-search.png" alt="">
-        <img class="sofa-pic" src="./img/qbh-list-sofa-pic.png" alt="">
-        <img class="list-sofas" src="./img/qbh-list-sofas.png" alt="">
-      </div> -->
-    </section>
-
-    <!-- 模块三: 选购  buy -->
-    <section class="section qbh-buy"></section>
-
-    <!-- 模块四: 填写信息 info -->
-    <section class="section qbh-info"></section>
-
-    <!-- 模块五: 付款   payment-->
-    <section class="section qbh-payment"></section>
-
-    <!-- 模块六: 送货 delivery-->
-    <section class="section qbh-delivery"></section>
-
-    <!-- 模块七: 评价 appraise  -->
-    <section class="section qbh-appraise"></section>
-
-    <!-- 模块八: 购物 shopping -->
-    <section class="section qbh-shopping"></section>
-  </main>
-
-  <!-- 在body闭合标签上引入jQuery库 -->
+        <img class="qbh-list-search-finish" src="./image/qbh-list-search-finish.png" alt="">
+        <!-- 沙发列表 -->
+        <img class="qbh-list-sofas" src="./image/qbh-list-sofas.png" alt="">
+        <!-- 掉下去的沙发 -->
+        <img class="qbh-list-sofa-pic" src="./image/qbh-list-sofa-pic.png" alt="">
+      </div>
+    </div>
+    <!-- 第三屏 -->
+    <div class="section qbh-buy">
+      <div class="qbh-buy-main">
+        <div class="qbh-buy-select">
+          <img class="qbh-buy-choose-start" src="./image/qbh-buy-choose-start.gif" alt="">
+          <img class="qbh-buy-choose-end" src="./image/qbh-buy-choose-end.gif" alt="">
+          <img class="qbh-buy-add-cart-start" src="./image/qbh-buy-add-cart-start.gif" alt="">
+          <img class="qbh-buy-add-cart-end" src="./image/qbh-buy-add-cart-end.gif" alt="">
+        </div>
+        <!-- 斜着的沙发 -->
+        <img class="qbh-buy-rotate-sofa" src="./image/qbh-info-rotate-sofa.png" alt="">
+      </div>
+    </div>
+    <!-- 第四屏 -->
+    <div class="section qbh-info">
+      <img class="qbh-info-cloud" src="./image/qbh-info-cloud.png" alt="">
+      <img class="qbh-info-worda" src="./image/qbh-info-worda.png" alt="">
+      <img class="qbh-info-wordb" src="./image/qbh-info-wordb.png" alt="">
+      <div class="qbh-info-cart-box">
+        <img class="qbh-info-rotate-sofa" src="./image/qbh-info-rotate-sofa.png" alt="">
+        <img class="qbh-info-cart" src="./image/qbh-info-cart.png" alt="">
+      </div>
+      <div class="qbh-info-address">
+        <img class="qbh-info-address-box" src="./image/qbh-info-address-box.png" alt="">
+        <img class="qbh-info-address-font" src="./image/qbh-info-address.png" alt="">
+      </div>
+    </div>
+    <!-- 第五屏 -->
+    <div class="section qbh-payment"></div>
+    <!-- 第六屏 -->
+    <div class="section qbh-delivery"></div>
+    <!-- 第七屏 -->
+    <div class="section qbh-appraise"></div>
+    <!-- 第八屏 -->
+    <div class="section qbh-shopping"></div>
+  </div>
+  <!-- 引入jQuery库 -->
   <script src="./js/jquery.min.js"></script>
-  <!-- 引入增强动画过渡过程插件 -->
-  <script src="./js/jquery.easings.min.js"></script>
-  <!-- 引入全屏滚动插件 -->
+  <!-- 引入fullPage.js -->
   <script src="./js/jquery.fullPage.min.js"></script>
-  <!-- 引入该页面的JavaScript文件 -->
+  <!-- 引入easings.js  可选的  为的是增强动画 -->
+  <script src="./js/jquery.easings.min.js"></script>
+  <!-- 引入页面的js -->
   <script src="./js/qbh.js"></script>
 </body>
 
