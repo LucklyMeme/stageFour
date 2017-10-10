@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>HTML5应用之文件拖拽</title>
+  <style type="text/css">
+    .demo {
+      width: 500px;
+      margin: 50px auto
+    }
+
+    #drop_area {
+      width: 100%;
+      height: 100px;
+      border: 3px dashed silver;
+      line-height: 100px;
+      text-align: center;
+      font-size: 36px;
+      color: #d3d3d3
+    }
+
+    #preview {
+      width: 500px;
+      overflow: hidden
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="main">
+    <div class="demo">
+      <div id="drop_area">把文件拖动到这里告诉你内容</div>
+      <div id="preview"></div>
+    </div>
+  </div>
+ <script>
+   var dropArea = document.querySelector("#drop_area");
+   var preview = document.querySelector("#preview");
+  //  阻止拖拽事件的浏览器默认事件
+  document.addEventListener("dragover",function(e){
+    e.preventDefault();
+  })
+
+
+  // 要把文件从桌面上放到drop_area这个div上
+
+  dropArea.addEventListener("drop",function(e){
+    e.preventDefault();
+    // console.log(e.dataTransfer.files);
+    var file = e.dataTransfer.files[0];
+    // 读取文件的内容
+    // 1.使用FileReader
+    var filereader = new FileReader();
+    // 2.用方法读取文件了
+    filereader.readAsText(file);
+
+    // 3.等待读取结束
+    filereader.onload = function(){
+      // 把结果输出到页面上
+      // console.log(filereader.result);
+      preview.innerHTML = filereader.result;
+    }
+
+    // 
+  })
+  
+ </script>
+</body>
+
+</html>

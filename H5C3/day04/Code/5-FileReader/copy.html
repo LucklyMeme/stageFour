@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="box">
+    <input type="file" name="file" id="file">
+    <button class="preview">预览</button>
+  </div>
+
+
+  <img src="" alt="">
+
+
+  <script>
+    var input = document.querySelector("input");
+    var button = document.querySelector("button");
+    var img = document.querySelector("img");
+
+    button.onclick = function () {
+
+      // console.dir(input);
+      var file = input.files[0];
+      // 使用filereader对象
+      var filereader = new FileReader();
+      // 读取文件
+      filereader.readAsDataURL(file);
+      // 等待文件读取完
+      filereader.onload = function () {
+        // 获取读取的内容
+        // console.log(filereader.result);
+        img.src = filereader.result;
+      }
+
+
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>拖拽</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+    /* 拖拽元素 */
+
+    .drag {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+    }
+    /* 目标元素 */
+
+    .target {
+      position: absolute;
+      top: 100px;
+      right: 100px;
+      width: 500px;
+      height: 500px;
+      border: 1px solid #000;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 拖拽元素 -->
+  <!-- 一个普通元素怎么就能变成一个拖拽元素
+      加一个属性 :draggable = "true"
+  -->
+  <div class="drag" draggable="true"></div>
+  <!-- 目标元素 -->
+  <div class="target"></div>
+  <script>
+    // 获取拖拽元素
+    var oDrag = document.querySelector(".drag");
+    var oTarget = document.querySelector(".target");
+
+    // 拖拽元素的事件
+    // 拖拽开始触发事件
+    oDrag.addEventListener("dragstart", function (e){
+      // 在开始拖拽的时候获取拖拽元素的信息
+      // console.log(e);
+      // 在拖拽API中有一个方法 可以把数据传递到 drop事件中去
+      // console.log(this.className);
+      e.dataTransfer.setData("className",this.className);
+
+      console.log("拖拽开始");
+
+
+    })
+
+    // 拖拽过程中触发事件
+    oDrag.addEventListener("drag", function () {
+      console.log("拖拽中...");
+    })
+
+    // 拖拽结束触发事件
+    oDrag.addEventListener("dragend", function () {
+      console.log("拖拽结束");
+    })
+
+    // 拖拽元素进入目标元素后
+    oTarget.addEventListener("dragenter", function () {
+      console.log("拖拽元素进入了目标元素");
+    })
+
+    // 拖拽元素在目标元素上
+    oTarget.addEventListener("dragover", function (e) {
+      // 为了阻止浏览器的默认事件
+      e.preventDefault();
+      console.log("拖拽元素在目标元素上");
+    })
+
+    // 放下拖拽元素
+
+    oTarget.addEventListener("drop", function (e) {
+
+      // 还有一个属性e.dataTransfer.getData(key);
+
+      var className = e.dataTransfer.getData("className");
+      console.log(className);
+      console.log("拖拽元素被放下");
+
+      // 把元素添加到目标元素上
+      this.appendChild(document.querySelector("."+className));
+    }) 
+  </script>
+</body>
+
+</html>
