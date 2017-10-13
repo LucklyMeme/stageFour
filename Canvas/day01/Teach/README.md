@@ -25,8 +25,8 @@
 
   > 学习目标
 
-    绘制数据可视化图形
-
+    1.学会使用基本的canvas API,使用canvas可以完成简单的绘图
+    2.实现数据可视化
 ## Canvas 准备工作
 
   > 1.布置画布:添加canvas元素
@@ -41,7 +41,7 @@
         <title>给页面添加一个Canvas</title>
       </head>
       <body>
-        <canvas  style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;" width="800" height="600">
+        <canvas  style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;" width="600" height="600">
           你的浏览器居然不支持Canvas？！赶快换一个吧！！
         </canvas>
       </body>
@@ -90,30 +90,11 @@
       </body>
     </html>
   ```  
-## Canvas 坐标系
-
-    
-  > Canvas 2D坐标系
-
-  ![Canvas 2D坐标系](./images/coords.png)
-  
-    canvas画布的左上角为笛卡尔坐标系(直角坐标系)的原点，且y轴的正方向向下，x轴的正方向向右
-
-## 绘制图案的基本步骤
-
-  > 1.移动画笔
-
-    moveTo(X,Y) 移动画笔至这个点
-
-  > 2.确定第一个停止点
-
-    lineTo(X,Y) 笔画停点
-
-  > 3.规划好之后，选择画笔
-
-    lineWidth  控制画笔粗细
-    strokeStyle 设置画笔颜色
-
-  > 4.确定绘制
-
-    context.stroke()
+## 坐标系的方向与位置计算方法
+## 绘制的基本步骤
+## 非零环绕原则的作用与判断方法
+## 开启新路径的作用是什么
+## 绘制矩形的方法与擦除矩形区域的方法
+## 绘制圆弧与扇形的步骤
+## 绘制圆的步骤
+## 绘制文字的步骤
