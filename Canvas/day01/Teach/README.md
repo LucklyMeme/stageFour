@@ -3,30 +3,26 @@
   > Canvas是什么?
 
     Canvas(画布)是HTML5的一个新特性。传统的网页，总是使用GIF或者JPEG来显示图像，这种图形是需要事先画好，“静态”的图像；随着各种要求的发展，使用Flash或Java的“动态”图像也出现了。而Canvas，则是不使用Flash和Java，而是用Javascript在浏览器上绘图的一种手段。
-    我们要用的Canvas其实是HTML文档中的一个元素,而我们所要学习的其实是HTML5赋予Canvas这个标签(元素)的一系列方法.
+    我们要用的Canvas其实是HTML文档中的一个元素,而我们所要学习的其实是HTML5赋予Canvas这个标签(元素)的一系列方法().
 
-  > 为什么要学习Canvas
+  > Canvas的应用领域
 
-    1.Canvas 是Flash为基础的广告横幅和广告的极佳替代。吸引买家注意的所需的特性，它都拥有。
-    2.Canvas 可以生成视觉吸引和互动的图表。
-    3.Canvas结合text, images, videos, 和 audio 产生高效而具有吸引力的学习体验。
+    1.游戏  
+    2.数据可视化 http://echarts.baidu.com/
+    3.banner广告 
+    4.Canvas结合text, images, videos, 和 audio 产生高效而具有吸引力的用户体验。
 
   > Canvas效果展示
 
     1.知乎登录注册页动态离子背景效果
     2.表白时间
     3.坦克大战
-    4.数据图表  http://echarts.baidu.com/
-    5.酷炫的演示文稿 http://www.axeslide.com/
-
-  > 兼容性
-
-  ![Canvas的兼容性](./images/canvas-jianrongxing.png)
+    4.酷炫的演示文稿 http://www.axeslide.com/
 
   > 学习目标
 
     1.学会使用基本的canvas API,使用canvas可以完成简单的绘图
-    2.实现数据可视化
+    2.实现数据可视化4
 ## Canvas 准备工作
 
   > 1.布置画布:添加canvas元素
@@ -96,5 +92,3 @@
 ## 开启新路径的作用是什么
 ## 绘制矩形的方法与擦除矩形区域的方法
 ## 绘制圆弧与扇形的步骤
-## 绘制圆的步骤
-## 绘制文字的步骤

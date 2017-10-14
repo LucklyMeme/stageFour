@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘图的基本步骤</title>
+</head>
+
+<body>
+  <!-- 1.布置画布 -->
+  <canvas></canvas>
+  <script>
+    // 2.获取画布
+    var canvas = document.querySelector('canvas');
+    canvas.width = 500;
+    canvas.height = 500;
+  // 3.获的画笔
+    var context = canvas.getContext('2d');
+  // 4.定位画笔的起始位置
+  context.moveTo(0,0);
+  // 5.定位画笔的第一次结束位置
+  context.lineTo(100,0);
+  // 6.描边
+  context.stroke();
+  </script>
+</body>
+
+</html>
