@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>伪元素或者伪元素选择器</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: hotpink;
+      position: relative;
+    }
+
+    /* .box:before {
+      content: attr(title);
+      position: absolute;
+      top:0;
+      left:100px;
+      width: 40px;
+      height: 40px;
+      background-color: pink;
+    } */
+
+    .box:before {
+      content: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508038526703&di=363d24ac14e8054f929cca60b5e5c162&imgtype=0&src=http%3A%2F%2Fpic42.nipic.com%2F20140608%2F12504116_194242259000_2.jpg);
+      position: absolute;
+      top:0;
+      left:100px;
+      width: 40px;
+      height: 40px;
+      background-color: pink;
+    }
+
+    /* 1.伪元素是什么时候有的
+         伪元素是ie6就有的 而且还是微软的ie首先用的 所以没有兼容性  以前叫伪类,
+         然后在css3中 因此进行了归类 把before和after归类到了伪元素
+       2.:before和::before哪个好?
+         其实在用的过程中 单冒号好   因为兼容性好
+    */
+  </style>
+</head>
+<body>
+  <div class="box" title="我的天"></div>
+</body>
+</html>

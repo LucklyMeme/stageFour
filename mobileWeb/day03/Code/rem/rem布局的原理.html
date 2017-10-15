@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    /* 1.设计图是640px 然后有一个div 宽高都是 16px */
+
+    @media screen and (width: 320px) {
+      html {
+        /* 计算  320除以20 = 16*/
+        font-size: calc(320px/20);
+      }
+    }
+
+    @media screen and (width: 360px) {
+      html {
+        /* 计算  320除以20 = 16*/
+        font-size: calc(360px/20);
+      }
+    }
+  
+
+    
+    @media screen and (width: 414px) {
+      html {
+        /* 计算  320除以20 = 16*/
+        font-size: calc(414px/20);
+      }
+    }
+
+    .box {
+      /* width: 16px/32px*rem  */
+      width: 0.5rem;
+      height: 0.5rem;
+      background: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

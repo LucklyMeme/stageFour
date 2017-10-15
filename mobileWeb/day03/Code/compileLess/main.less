@@ -1,0 +1,254 @@
+@import './setting.less';
+
+// 单行(静默)注释  这是单行注释也叫静默注释  这样的注释是给开发者看的 不会编译到css中去
+/* 多行注释 多行注释是给用户或者想让人看到的注释 */
+
+// 变量
+// 格式: @变量名 : value
+// @primaryColor: pink;
+// @ciColor: rgb(201, 23, 112);
+// @white: #fff;
+// @gray: #ccc;
+// @fontSize: 16px;
+// @normalSize: 20px 30px 40px 50px;
+// header {
+//   background-color: @primaryColor;
+//   color: @ciColor;
+// }
+
+// footer {
+//   background-color: @primaryColor;
+//   color: @ciColor;
+// }
+
+
+// body {
+//   background-color:@gray;
+// }
+
+main {
+  color:@gray;
+  background-color:@white;
+  font-size:@fontSize;
+  padding:@normalSize;
+}
+// aside {
+//   font-size:@fontSize;
+//   margin:@normalSize;
+// }
+
+
+
+
+
+
+// 嵌套规则: 嵌套尽量不要超过3层
+// .container h1 {
+//   font-size: 25px;
+//   color: #E45456;
+// }
+
+// .container p {
+//   font-size: 25px;
+//   color: #3C7949;
+// }
+
+// .container .myclass h1 {
+//   font-size: 25px;
+//   color: #E45456;
+// }
+// .container .myclass p {
+//   font-size: 25px;
+//   color: #3C7949;
+// }
+
+// .container {
+//   h1 {
+//     font-size: 25px;
+//     color: #E45456;
+//   }
+
+//   p {
+//     font-size: 25px;
+//     color: #3C7949;
+//   }
+
+//   .myclass {
+//     h1 {
+//       font-size: 25px;
+//       color: #E45456;
+//     }
+
+//     p {
+//       font-size: 25px;
+//       color: #3C7949;
+//     }
+//   }
+// }
+
+
+
+// 父选择器
+// a {
+//   color:yellowgreen;
+// }
+// a:link {  
+//   color: black;  
+// }  
+// a:visited {  
+//   color:blue;  
+// }  
+// a:hover {  
+//   color: orange;  
+// }  
+// a:active {  
+//   color: pink;  
+// }  
+
+// a {
+//   color: yellowgreen;
+//   &:link {
+//     color: black;
+//   }
+
+//   &:visited {
+//     color: blue;
+//   } 
+
+//   &:hover {
+//     color: orange;
+//   } 
+
+//   &:active {  
+//     color: pink;  
+//   }  
+
+//   > b {
+//     background-color: yellow;
+//   }
+// }
+
+
+// 四则运算
+
+// .box {
+//   font-size: @fontSize + 2;
+//   margin-top: @fontSize - 6;
+//   padding-bottom: @fontSize * 2;
+//   width: @fontSize / 2;
+// }
+
+
+
+// 混合器 类似于函数
+// 格式: .混合器名(参数) {}
+// a {
+//   color:yellowgreen;
+// }
+// a:link {  
+//   color: black;  
+// }  
+// a:visited {  
+//   color:blue;  
+// }  
+// a:hover {  
+//   color: orange;  
+// }  
+// a:active {  
+//   color: pink;  
+// }  
+
+
+// 无参混合器
+// .chang(){
+//   color:yellowgreen;
+//   &:link {  
+//     color: black;  
+//   }  
+//   &:visited {  
+//     color:blue;  
+//   }  
+//   &:hover {  
+//     color: orange;  
+//   }  
+//   &:active {  
+//     color: pink;  
+//   }  
+  
+// }
+
+// .box {
+//   .chang();
+// }
+
+
+
+// 有参数的混合器(必须传参数)
+// .change(@normal,@link,@visited,@hover,@active) {
+//   color: @normal;
+
+//   &:link {
+//     color: @link;
+//   }
+
+//   &:visited {
+//     color: @visited;
+//   }
+
+//   &:hover {
+//     color: @hover;
+//   }
+
+//   &:active {
+//     color: @active;
+//   }
+// }
+
+// .box {
+//   .change()
+// }
+
+
+
+// 有参数的混合器有默认值
+// .change(@normal:red,@link:black,@visited:hotpink,@hover:purple,@active:@white) {
+//   color: @normal;
+
+//   &:link {
+//     color: @link;
+//   }
+
+//   &:visited {
+//     color: @visited;
+//   }
+
+//   &:hover {
+//     color: @hover;
+//   }
+
+//   &:active {
+//     color: @active;
+//   }
+// }
+
+// a {
+//   .change()
+// }
+
+
+// 继承(少用)
+// 格式: &:extend(选择器)
+// 当一个元素的最多有一两句代码不一样再去用继承
+aside {
+  font-size:24px;
+  margin:20px 30px 40px 50px;
+  padding: 10px;
+  height: 20px;
+}
+main {
+  color:#ccc;
+  background-color:#fff;
+  // font-size:24px;
+  // padding:20px 30px 40px 50px;
+  &:extend(aside);
+}

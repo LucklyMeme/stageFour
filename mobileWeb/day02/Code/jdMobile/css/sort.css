@@ -1,200 +1,176 @@
 html,body {
   width: 100%;
   height: 100%;
+  background-color: #fff;
 }
-
-.jdc {
+.jd-sort {
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  margin:  0 auto;
 }
 
 header {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 45px;
-  background-image: url("../images/header-bg.png");
+  background-image: url("../image/header-bg.png");
   background-size: 1px 44px;
   background-repeat: repeat-x;
   border-bottom: 1px solid #ccc;
   box-sizing: border-box;
-  position: relative;
+}
+
+header .back-icon {
+  position: absolute;
+  top:0;
+  left:0;
+  width: 40px;
+  height: 44px;
+  padding: 10px 11px;
+  background-image: url("../image/jd-sprites.png");
+  background-size: 200px 200px;
+  background-position: -20px 2px;
+  background-origin: content-box;
+  background-clip: content-box;
+  box-sizing: border-box;
 }
 
 header .search-box {
   width: 100%;
-  padding-left: 50px;
-  padding-right: 50px;
+  height: 44px;
+  padding:0 50px;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 header .search-box input {
   width: 100%;
   height: 30px;
-  line-height: 30px;
-  border: 1px solid #ccc;
-  margin-top: 7px;
+  border:1px solid #ccc;
+  margin-top: 6px;
   border-radius: 5px;
-  padding-left: 10px;
+  padding:0 8px;
   box-sizing: border-box;
 }
 
-/* 
-在很多移动端布局的时候 都把box-sizing给所有元素这样可以不需要专门去计算布局 以后如果布局变了 也不会打乱整体布局
-* {
-  box-sizing: border-box;
-} */
 
-header .back {
+header .menu-icon{
   position: absolute;
-  top: 0;
-  left: 0;
+  top:0;
+  right:0;
   width: 40px;
   height: 44px;
-  background-image: url("../images/jd-sprites.png");
-  background-size: 200px 200px;
-  background-position: -23px 2px;
   padding: 10px 11px;
-  box-sizing: border-box;
-  background-origin: content-box;
-  background-clip: content-box;
-}
-
-header .menu {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 42px;
-  height: 44px;
-  background-image: url("../images/jd-sprites.png");
+  background-image: url("../image/jd-sprites.png");
   background-size: 200px 200px;
-  background-position: -58px 2px;
-  padding: 10px 10px;
-  box-sizing: border-box;
+  background-position: -60px 2px;
   background-origin: content-box;
   background-clip: content-box;
+  box-sizing: border-box;
 }
 
 /* 主要区域 */
-
 main {
   position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  padding-top: 45px;
   height: 100%;
+  padding-top:45px;
   box-sizing: border-box;
   display: flex;
 }
 
-aside {
+main aside {
   width: 90px;
   height: 100%;
-  /* background-color: orange; */
-  /* 网页自己出现的滚动条不好 */
-  /* overflow-y: scroll; */
-
   overflow: hidden;
 }
 
-aside ul {
+main aside ul {
   width: 100%;
 }
 
-aside li {
+main aside li {
   width: 100%;
   height: 50px;
-  border-bottom: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   box-sizing: border-box;
-
-  line-height: 50px;
   text-align: center;
+  line-height: 50px;
   font-size: 13px;
+  background-color: #f7f7f7;
 }
 
-aside li.active {
+main aside li.active {
+  border-right: none;
   background-color: #fff;
-  color: #C91523;
-  border-color: transparent;
+  color:#c91523;
+  
 }
 
-article {
-  /* width: 并不知道 是自适应的 */
+main article {
   flex: 1;
   height: 100%;
-  /* background-color: olive; */
-  background-color: #fff;
-  padding: 0 11px 0 13px;
+  width: 100%;
+  padding: 20px 10px;
   box-sizing: border-box;
   overflow-y: scroll;
 }
 
-.hotsale {
-  width: 100%;
-}
+/* main article .hot-tuijian {
 
-.hotsale h4,.sale-girl  h4 {
-  /* font-weight: normal; */
-  font-size: 12px;
+} */
+
+main article .hot-tuijian h2,.hot-sale h2 {
+  font-size: 13px;
   color: #666;
-  margin-top: 18px;
-  margin-bottom: 10px;
 }
 
-.hotsale ul {
+main article .hot-tuijian ul {
+  margin-top: 15px;
   width: 100%;
   border-top: 1px solid #ccc;
   border-left: 1px solid #ccc;
-  box-sizing: border-box;
   overflow: hidden;
 }
 
-.hotsale li {
+.hot-tuijian ul li {
   float: left;
   width: 33.333333%;
   height: 50px;
-  border-bottom: 1px solid #ccc;
   border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
   box-sizing: border-box;
   text-align: center;
   line-height: 50px;
+  font-size: 13px;
 }
 
-.sale-girl {
+
+/* 热门导购 */
+.hot-sale {
+  margin: 15px 0;
+}
+
+.hot-sale ul {
   width: 100%;
-  padding-bottom: 20px;
 }
 
-.sale-girl ul {
-  border:none;
-  width: 100%;
-  overflow: hidden;
-}
-
-.sale-girl li {
+.hot-sale ul li {
   float: left;
-  width: 33.3333%;
-  height: auto;
-  border:none;
+  width: 33.33333%;
+  padding: 0 5px;
+  box-sizing: border-box;
 }
 
-.sale-girl  a {
+.hot-sale ul a {
   display: block;
   width: 100%;
-}
-
-.sale-girl img {
-  width: 100%;
-  height: auto;
-  vertical-align: middle;
-}
-
-.sale-girl li span{
-  margin-top: 8px;
-  display: block;
   text-align: center;
-  line-height:  1;
+}
+
+.hot-sale ul  span {
+  display: block;
+  margin: 8px 0;
 }

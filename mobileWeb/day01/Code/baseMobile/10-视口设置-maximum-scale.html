@@ -3,11 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!--maximum-scale=2.0 代表的含义是允许最大缩放到2倍 
-    如果你的手机是ios10以上 已经不起作用了
-    因为苹果公司为了让用户有最好的体验 允许让用户自己缩放
-   -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=2.0">
+  <!-- maximum-scale=2.0代表最大缩放就只能到2倍页面大小 
+      在ios系统 10以后 这个属性就被忽略了,不起作用了(微信) 在safari上写是没有用的
+      苹果公司认为 如果可以控制缩放 影响了用户更好的去获取信息 
+      
+
+      有可能android设备是可以的 
+  -->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=2.0" >
   <title>Document</title>
   <style>
     html,body{

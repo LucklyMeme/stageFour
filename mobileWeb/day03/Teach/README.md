@@ -17,7 +17,7 @@
   #### less安装
   > 安装步骤:
 
-    第一步: 安装node (node就是没有dom的javascript node是开发后台应用程序的)
+    第一步: 安装node (node就是没有dom的javascript node是开发后台应用程序的) msi
     第二步: 在命令提示符下运行以下命令: npm(node package manage) install(安装) -g(global) less
             如果你看到了如下的结果
             `-- less@2.6.1
@@ -107,6 +107,8 @@
 
   > 第一种方法(**命令行**): 在less文件夹下打开命令行窗口 输入命令:**lessc path/xxx.less path/xxx.css**
 
+     lessc 代表 lesscompile less编译  
+
   > 第二种方法(**webstorm**): 找到webstorm中的 文件(file)> 设置(setting) > 工具(Tools) > File Watchers对话框    中的'+'号  选择less  前提是必须安装node和less
 
   > 第三种方法(**vscode**): 在vscode中安装Easy Less 然后在文件中创建less文件即可 
@@ -116,22 +118,22 @@
   #### less语法
   > 变量
 
-  格式: @变量名: 值
+    格式: @变量名: 值
 
-    body {
-      background-color:#ccc;
-    }
+      body {
+        background-color:#ccc;
+      }
 
-    main {
-      color:#ccc;
-      background-color:#fff;
-      font-size:24px;
-      padding:20px 30px 40px 50px;
-    }
-    aside {
-      font-size:24px;
-      margin:20px 30px 40px 50px;
-    }
+      main {
+        color:#ccc;
+        background-color:#fff;
+        font-size:24px;
+        padding:20px 30px 40px 50px;
+      }
+      aside {
+        font-size:24px;
+        margin:20px 30px 40px 50px;
+      }
 
   > 嵌套规则
 
@@ -156,22 +158,22 @@
 
   > 父选择器
 
-  格式: & 代表父选择器  > 代表直接子元素选择器
-    a {
-      color:yellowgreen;
-    }
-    a:link {  
-      color: black;  
-    }  
-    a:visited {  
-      color:blue;  
-    }  
-    a:hover {  
-      color: orange;  
-    }  
-    a:active {  
-      color: pink;  
-    }  
+    格式: & 代表父选择器  > 代表直接子元素选择器
+      a {
+        color:yellowgreen;
+      }
+      a:link {  
+        color: black;  
+      }  
+      a:visited {  
+        color:blue;  
+      }  
+      a:hover {  
+        color: orange;  
+      }  
+      a:active {  
+        color: pink;  
+      }  
 
   > 四则运算(+ - * /)
 
@@ -188,43 +190,66 @@
 
   > 混合器(无参 有参无默认值  有参有默认值)
 
-  格式: .混合器的名字(参数) {}
-    a {
-      color:yellowgreen;
-    }
-    a:link {  
-      color: black;  
-    }  
-    a:visited {  
-      color:blue;  
-    }  
-    a:hover {  
-      color: orange;  
-    }  
-    a:active {  
-      color: pink;  
-    }  
-
+    格式: .混合器的名字(参数) {}
+      a {
+        color:yellowgreen;
+      }
+      a:link {  
+        color: black;  
+      }  
+      a:visited {  
+        color:blue;  
+      }  
+      a:hover {  
+        color: orange;  
+      }  
+      a:active {  
+        color: pink;  
+      }  
 
   > 继承(扩展)
   
-  格式: &:extend(选择器)
-    main {
-      color:#ccc;
-      background-color:#fff;
-      font-size:24px;
-      padding:20px 30px 40px 50px;
-    }
-    aside {
-      font-size:24px;
-      margin:20px 30px 40px 50px;
-    }
+    格式: &:extend(选择器)
+      main {
+        color:#ccc;
+        background-color:#fff;
+        font-size:24px;
+        padding:20px 30px 40px 50px;
+      }
+      aside {
+        font-size:24px;
+        margin:20px 30px 40px 50px;
+      }
 
 
   > 导入其他less文件
 
    @import "src"
    @import url() 
+---------------------------------------------------------------
+## 什么是媒体查询
+  - 媒体查询是CSS3的中一个强大的工具。它是包含媒体类型以及零或多个检查特定媒体特征条件的表达式。
+    表达式描述了媒体特征, 最终会被解析为 true 或 false.如果是true 那么会执行  如果是false 就不会执行了.
+    要做响应式(媒体查询)  还要做rem布局(需要用到媒体查询)
+    通过不同的判别条件识别不同的设备 以给该设备应用不同的样式
+## 如何使用媒体查询
+  - link标签中的CSS媒体查询
+    用link方式引入的时候 media属性中 放着媒体查询的条件  如果条件成立 那么应用该样式表
+    <link rel="stylesheet" href="./link-ipone5.css" media="screen and (width: 320px)">
+  - 样式表中的@media关键字引入CSS媒体查询
+      @media 条件 {
+        在该条件成立的时候 应用的样式
+      }
+## 媒体特性
+  - width 视口的宽度
+  - height 视口的高度
+  - device-width 设备屏幕宽度
+  - device-height 设备屏幕高度
+  - orientation 横屏竖屏 
+    - portrait （纵向）
+    - landscape（横向）
+## 如何解决媒体查询的兼容性问题
+  Respond.js 是一个极小的增强 Web 浏览器的 JavaScript 库，使得原本不支持 CSS 媒体查询的浏览器能够支持它们。该脚本循环遍历页面上的所有 CSS 引用，并使用媒体查询分析 CSS 规则。然后，该脚本会监控浏览器宽度变化，添加或删除与 CSS 中媒体查询匹配的样式。最终结果是，能够在原本不支持的浏览器上运行媒体查询。
 ---------------------------------------------------------------
 ## rem布局(移动端主流)
 
@@ -242,6 +267,8 @@
 
   ![rem适配原理](./images/rem适配原理.png)
 
+  1.为啥人为分成20份 只是为了好算
+  2.为何是16*16 的小方格
   #### rem布局项目
   > 项目背景
 
@@ -261,3 +288,11 @@
     rem
 
   > 项目结构搭建
+
+  > 项目开发流程
+
+    1.设计项目需求--- 大老板
+    2.产品经理 --- 出原型图
+    3.赶紧去问设计要配色方案--- setting.less
+    4.设计的设计图一到前端手里-- 补细节了  后台已经做的差不多了
+    5.前后端联调 项目快要完成了

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>background-origin背景原点</title>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .origin {
+            width: 100%;
+            height: 100%;
+            background-color: #ececec;
+            position: relative;
+        }
+        
+        .origin > div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-repeat: no-repeat;
+            background-image: url("./item_9.png");
+            /*background-position: 5px 5px;*/
+            border: 10px solid rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            /* background-position: 5px 5px; */
+            /*background-origin规定了background-position的基准点*/
+            color: red;
+        }
+        
+        .default {
+            left: 400px;
+            top: 60px;
+        }
+        
+        .padding-box {
+            right: 400px;
+            top: 60px;
+            /* 用来改变图片background-position的计算基准点 */
+            background-origin: padding-box;/*默认值*/
+
+        }
+        
+        .border-box {
+            left: 400px;
+            bottom: 60px;
+            background-origin: border-box;
+        }
+        
+        .content-box {
+            right: 400px;
+            bottom: 60px;
+
+            background-origin: content-box;/*让图片的左上角的顶点在内容区域的做上角*/
+        
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="origin">
+        <div class="default">默认值</div>
+        <div class="padding-box">padding-box</div>
+        <div class="border-box">border-box</div>
+        <div class="content-box">content-box</div>
+    </div>
+</body>
+
+</html>
