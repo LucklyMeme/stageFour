@@ -76,14 +76,46 @@
 <body>
   <div class="carousel">
     <ul>
-      <li><a href="javascript:;"><img src="./image/0.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/1.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/2.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/3.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/4.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/5.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/6.png" alt=""></a></li>
-      <li><a href="javascript:;"><img src="./image/7.png" alt=""></a></li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/0.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/1.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/2.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/3.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/4.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/5.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/6.png" alt="">
+        </a>
+      </li>
+      <li>
+        <a href="javascript:;">
+          <img src="./image/7.png" alt="">
+        </a>
+      </li>
     </ul>
     <ol>
       <li></li>
@@ -168,9 +200,9 @@
     })
 
     ul.addEventListener('touchend', function (e) {
-    //  console.log(2);
-    autoPlay();// autoplay()方法的位置问题
-    console.log(locked);
+      //  console.log(2);
+      autoPlay();// autoplay()方法的位置问题
+      // console.log(locked);
       if (locked == true) {
         return false;
       }
@@ -218,21 +250,16 @@
 
         ul.style.left = index * carouselWidth + 'px';
         ul.style.transition = "all 1s";
-        
+
       }, 1500);
     }
 
-  //  
+    //  
     function changePoint() {
-      for(var i =0;i<points.length;i++){
+      for (var i = 0; i < points.length; i++) {
         points[i].classList.remove("active");
       }
-
-
-      points[-(index)-1].classList.add("active");
-
-      
-      
+      points[-(index) - 1].classList.add("active");
     }
   </script>
 </body>
