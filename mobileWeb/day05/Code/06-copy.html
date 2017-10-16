@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap 101 Template</title>
+
+  <!-- Bootstrap -->
+  <link href="./lib/css/bootstrap.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+  <style>
+    .navbar-header{
+      height: 80px;
+    }
+    .navbar-default .navbar-nav > li > a {
+      padding: 0 15px;
+      line-height: 80px;
+    }
+
+    .navbar-default .navbar-nav > li > b {
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 3px;
+      background-color: red;
+      opacity: 0;
+    }
+
+    .navbar-default .navbar-nav > li:hover > b {
+      opacity: 1;
+    }
+    .navbar-nav {
+      margin: 0 -15px;
+    }
+
+    .navbar-toggle {
+      margin-top: 24px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container wjs-nav">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#zhedie">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+        <a class="navbar-brand" href="#">
+          <img src="./images/logo.png" alt="">
+        </a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="zhedie">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#">我要投资</a><b></b></li>
+          <li><a href="#">我要借贷</a><b></b></li>
+          <li><a href="#">平台介绍</a><b></b></li>
+          <li><a href="#">新手专区</a><b></b></li>
+          <li><a href="#">最新动态</a><b></b></li>
+          <li><a href="#">微平台</a><b></b></li>
+        </ul>
+        <!-- 如果看到个人中心掉下来了 就加一个hidden-sm -->
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">个人中心</a><b></b></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <script src="./js/jQuery.min.js"></script>
+  <script src="./lib/js/bootstrap.min.js"></script>
+</body>
+
+</html>

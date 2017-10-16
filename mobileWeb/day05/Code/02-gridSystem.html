@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>grid system</title>
+
+    <!-- Bootstrap -->
+    <link href="./lib/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+      div[class^="col"] {
+        height: 40px;
+        line-height: 40px;
+        text-align: center;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 
+       bootstrap的栅格系统针对不同屏幕宽度的设备,把整个屏幕分成12列
+
+       手机  xs  宽度小于768px  超小屏幕
+       平板  sm   屏幕宽度在768以上  小屏幕
+       旧的显示器 md 屏幕宽度在992px以上 中等屏幕
+       大屏幕   lg   屏幕宽度在1200px以上  大屏幕
+     -->
+
+     <!-- 在写任何布局的时候 都要把内容包裹在container 整个容器中 -->
+   
+
+    <!-- 固定宽度布局容器 -->
+    <!-- <div class="container">
+
+    </div>
+    <!-- 流式布局布局容器 -->
+    <!--<div class="container-fluid"></div> -->
+
+    <!-- container > row > column -->
+
+    <!-- <div class="container">
+      <div class="row">
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+        <div class="col-lg-1 col-md-12 col-sm-6 col-xs-1">1</div>
+      </div>
+    </div> -->
+
+
+    <!--占满全屏 三个一行  最后多两个 让这两个两端对齐-->
+
+    <!-- <div class="container-fluid">
+      <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+          <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-md-offset-4 col-sm-offset-4 col-xs-offset-4" >1</div>
+      </div>
+    </div> -->
+
+<!-- 列嵌套 -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">1</div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">1</div>
+    </div>
+  </div> 
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="./js/jQuery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="./lib/js/bootstrap.min.js"></script>
+  </body>
+</html>
