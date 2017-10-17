@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>填充闭合区域</title>
+</head>
+
+<body>
+  <canvas></canvas>
+  <script>
+    var canvas = document.querySelector('canvas');
+    canvas.width = 500;
+    canvas.height =500;
+    canvas.style.border = '1px solid #ff0000';
+
+    var context = canvas.getContext('2d');
+
+    context.moveTo(100,100);
+    context.lineTo(300,100);
+    context.lineTo(300,200);
+    context.lineTo(150,200);
+
+    // context.stroke(); 因为四个点没有画完,所以组成的是不闭合的图形
+
+    context.fill(); //fill方法 如果描点的曲线不闭合 那么自动将起点和重点连接起来填充
+  </script>
+</body>
+
+</html>
