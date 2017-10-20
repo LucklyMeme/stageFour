@@ -146,4 +146,33 @@
 
   ![非零环绕原则](./images/feilinghuanrao.png)
 
-## 
+## 开启路径与关闭路径
+
+  > 开启路径
+
+    context.beginPath();
+
+  > 关闭路径
+
+    关闭路径：指的时将同一个路径中的起点与终点相连接
+    context.closePath();
+
+## 绘制矩形
+
+  > 绘制矩形
+
+    context.rect( x, y, width, height );
+
+  > 描边矩形
+
+    context.strokeRect( x, y, width, height )
+
+  > 填充矩形
+
+    context.fillRect( x, y, width, height );
+
+## 清空矩形
+
+  > 清空矩形
+
+    context.cleartRect( x, y, width, height );
