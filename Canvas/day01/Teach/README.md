@@ -133,6 +133,14 @@
 
     context.strokeStyle = value (value为颜色)
 
+  > 设置线末端类型
+
+    context.lineCap = value (value可以为 butt(默认) round(圆角) square(方角))
+
+  > 设置相交线的拐点
+
+    context.lineJoin = value (value可以为 miter(默认) round(圆角) bevel)
+
 ## 绘制一个矩形块(有填充颜色的)
 
   > 设置填充
