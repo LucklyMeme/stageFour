@@ -3,13 +3,13 @@
   > Canvas是什么?
 
     Canvas(画布)是HTML5的一个新特性。传统的网页，总是使用GIF或者JPEG来显示图像，这种图形是需要事先画好，“静态”的图像；随着各种要求的发展，使用Flash或Java的“动态”图像也出现了。而Canvas，则是不使用Flash和Java，而是用Javascript在浏览器上绘图的一种手段。
-    我们要用的Canvas其实是HTML文档中的一个元素,而我们所要学习的其实是HTML5赋予Canvas这个标签(元素)的一系列方法().
+    我们要用的Canvas其实是HTML文档中的一个元素,而我们所要学习的其实是HTML5赋予Canvas这个标签(元素)的一系列js方法.
 
   > Canvas的应用领域
 
     1.游戏  
-    2.数据可视化 http://echarts.baidu.com/
-    3.banner广告 
+    2.数据可视化 http://echarts.baidu.com/ --重点
+    3.banner广告 youtube
     4.Canvas结合text, images, videos, 和 audio 产生高效而具有吸引力的用户体验。
 
   > Canvas效果展示
@@ -35,7 +35,6 @@
   > 5. canvas的兼容性非常强,只要支持该标签的,基本功能都一样,因此不用考虑兼容问题.
 
   > 6. canvas本身不能绘图,是使用javascript来完成绘图的,canvas对象提供了各种绘图用的API;
-
 ## 坐标系的方向与位置计算方法
   ![坐标系图](./images/coords.png)
 
@@ -102,7 +101,6 @@
       </body>
     </html>
   ```  
-
 ## 绘制一条线段
 
   > 1.在html中添加画布
@@ -122,7 +120,6 @@
   > 6.把计划的点连接起来(描边)
 
     context.stroke()
-
 ## 设置线的样式
 
   > 设置线宽
@@ -140,31 +137,28 @@
   > 设置相交线的拐点
 
     context.lineJoin = value (value可以为 miter(默认) round(圆角) bevel)
-
 ## 绘制一个矩形块(有填充颜色的)
 
   > 设置填充
 
     context.fill()
-
 ## 非零环绕原则
 
   > 非零环绕原则
     如果需要判断某一个区域是否需要填充颜色. 就从该区域中随机的选取一个点。从这个点拉一条直线出来, 一定要拉到图形的外面. 此时以该点为圆心。看穿过拉出的直线的线段. 如果是顺时针方向就记为 +1, 如果是逆时针方向，就记为 -1. 最终看求和的结果. 如果是 0 就不填充. 如果是非零就填充.
 
   ![非零环绕原则](./images/feilinghuanrao.png)
-
 ## 开启路径与关闭路径
 
   > 开启路径
 
-    context.beginPath();
+    context.beginPath();  不是什么时候都用开启新路径的  而是要绘制不同的样式的样式的时候 才需要开启新路径
+    开启新路径是为了具体的设置不同图案的样式
 
   > 关闭路径
 
     关闭路径：指的时将同一个路径中的起点与终点相连接
     context.closePath();
-
 ## 绘制矩形
 
   > 绘制矩形
@@ -178,9 +172,13 @@
   > 填充矩形
 
     context.fillRect( x, y, width, height );
-
 ## 清空矩形
 
   > 清空矩形
 
-    context.cleartRect( x, y, width, height );
+    context.cleartRect( x, y, width, height ); 在该区域创建了一个透明的矩形而已，不能填充颜色
+## 绘制一条虚线
+
+  > 绘制虚线
+
+    context.setLineDash();
