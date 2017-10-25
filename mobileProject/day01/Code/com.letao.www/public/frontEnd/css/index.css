@@ -31,7 +31,8 @@
 /* 内容区域活动 */
 .lt-activity {
   overflow: hidden;
-  background-color: #e6e7e7;
+  background-color: #fff;
+  padding: 0 10px;
 }
 
 .lt-activity a {
@@ -44,12 +45,82 @@
 }
 
 
-/*  */
+/* 品牌专区 */
+.lt-brand {
+  padding: 0 10px;
+}
 .lt-brand img {
   width: 100%;
   vertical-align: middle;
 }
 
+
+/* 运动专区 */
+.lt-sports,.lt-man {
+  width: 100%;
+  padding: 0 10px;
+  background-color: #fff;
+}
+
+.lt-sports img,.lt-man img {
+  width: 100%;
+  vertical-align: middle;
+
+}
+
+.lt-sports .lt-sports-item,.lt-man .lt-sports-item {
+   display: block;
+   background-color: #fff;
+   box-shadow: 0 0 5px #ccc;
+   padding: 10px 0;
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.lt-sports div[class^='mui-col']:nth-child(2n) .lt-sports-item,
+.lt-man div[class^='mui-col']:nth-child(2n) .lt-sports-item {
+  margin-right: 5px;
+}
+
+.lt-sports div[class^='mui-col']:nth-child(2n+1) .lt-sports-item,
+.lt-man div[class^='mui-col']:nth-child(2n+1) .lt-sports-item{
+  margin-left: 5px;
+}
+
+.lt-sports .lt-sports-item p,
+.lt-man .lt-sports-item p{
+  width: 100%;
+  padding: 0 10px;
+  height: 36px;
+  line-height:  18px;
+  text-align: left;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.lt-sports .lt-sports-item .lt-sports-price,
+.lt-man .lt-sports-item .lt-sports-price {
+  text-align: center;
+  font-size: 12px;
+  margin: 10px 0;
+}
+
+ .lt-sports-item .lt-sports-price .new{
+   color: red;
+ }
+
+ .lt-sports-item .lt-sports-price .old {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.lt-sports-item .lt-sports-buy-btn {
+  background: #006699;
+  color: #fff;
+}
 
 /* 底部工具 */
 .lt-tool {
