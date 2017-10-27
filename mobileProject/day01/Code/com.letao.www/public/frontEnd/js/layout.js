@@ -11,42 +11,59 @@ mui.init({
   ]
 });
 
+
 mui(".lt-tool").on('tap', '.mui-tab-item', function (ev) {
   // console.log(mui(this)[0].classList[1]);
   var toolName = mui(this)[0].classList[1];
-  var iframe = document.querySelector('iframe');
-
-  // console.log(iframe.src);
-  // console.log(indexPage);
+  var headerBack = document.querySelector('.lt-header .lt-header-back');
+  var iFrame = document.querySelector('iframe');
+  var muiTitle = document.querySelector('h1.mui-title')
 
   switch (toolName) {
     case 'lt-tool-home':
-      iframe.src = './index.html';
-      iframe.id = 'index.html',
-      iframe.name = 'index.html'
+      iFrame.src = './index.html';
+      iFrame.id = 'index.html';
+      iFrame.name = 'index.html';
       break;
     case 'lt-tool-sort':
-      iframe.src = './sort.html';
-      iframe.id = 'sort.html',
-        iframe.name = 'sort.html'
+      iFrame.src = './sort.html';
+      iFrame.id = 'sort.html';
+      iFrame.name = 'sort.html';
       break;
     case 'lt-tool-cart':
-      iframe.src = './cart.html';
-      iframe.id = 'cart',
-        iframe.name = 'cart.html'
+      iFrame.src = './cart.html';
+      iFrame.id = 'cart';
+      iFrame.name = 'cart.html';
       break;
     case 'lt-tool-user':
-      iframe.src = 'user.html';
-      iframe.id = 'user.html',
-        iframe.name = 'user.html'
+      iFrame.src = 'user.html';
+      iFrame.id = 'user.html';
+      iFrame.name = 'user.html';
+      muiTitle.innerHTML = '个人中心';
+      headerBack.style.display = 'block';
       break;
     default:
-      iframe.src = './index.html';
-      iframe.id = 'index.html',
-        iframe.name = 'index.html'
+      iFrame.src = './index.html';
+      iFrame.id = 'index.html';
+      iFrame.name = 'index.html';
       break;
   }
+
+
 })
 
 
 
+
+// headerBack.onclick = function(){
+//   iFrame.src = './index.html';
+//   iFrame.id = 'index.html';
+//   iFrame.name = 'index.html';
+// } 
+mui('.lt-header').on('tap', '.lt-header .lt-header-back', function () {
+  var iFrame = document.querySelector('iframe');
+  iFrame.src = './index.html';
+  iFrame.id = 'index.html';
+  iFrame.name = 'index.html';
+  $(this).hide();
+})

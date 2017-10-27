@@ -7,12 +7,16 @@
   color: #fff;
 }
 
-.lt-header .lt-header-search {
+.lt-header .lt-header-search,.lt-header .lt-header-back {
   line-height: 44px;
   font-size: 22px;
   color: #fff;
 }
 
+
+.lt-header .lt-header-back {
+  display: none;
+}
 
 
 /* 底部工具 */
