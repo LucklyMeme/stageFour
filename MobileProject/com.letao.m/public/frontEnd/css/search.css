@@ -1,0 +1,44 @@
+.lt-header .lt-header-back {
+  display: block;
+}
+
+/* 搜索页面样式 */
+.lt-search {
+  width: 100%;
+  padding:0 20px;
+}
+
+.lt-search .lt-search-box {
+  width: 100%;
+  height: 40px;
+
+  position: relative;
+
+}
+
+.lt-search .lt-search-box input {
+  padding: 0;
+  padding-left: 10px;
+  margin-top: 5px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  text-align: left;
+  border: 1px solid #006699;
+  background: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.lt-search .lt-search-box .lt-search-btn {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  line-height: 30px;
+  background-color: #006699;
+  color: #fff;
+  font-size: 14px;
+  padding: 0 4px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}

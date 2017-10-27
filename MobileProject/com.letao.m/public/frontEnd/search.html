@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>乐淘云购</title>
+  <!-- 引入网站图标 -->
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- 引入UI框架-MUI -->
+  <link rel="stylesheet" href="./lib/mui/css/mui.css">
+  <!-- 引入字体图标库 -->
+  <link rel="stylesheet" href="./lib/fontAwesome/css/font-awesome.css">
+  <!-- 引入公共样式 -->
+  <link rel="stylesheet" href="./css/common.css">
+  <!-- 引入首页样式 -->
+  <link rel="stylesheet" href="./css/search.css">
+</head>
+
+<body class="mui-ios mui-ios-9 mui-ios-9-1">
+  <!-- 头部导航栏 -->
+  <header class="mui-bar mui-bar-nav lt-header">
+    <!-- 返回按钮 -->
+    <a id="back" class="mui-pull-left lt-header-back">
+      <span class="fa fa-chevron-left"></span>
+    </a>
+    <h1 class="mui-title">乐淘云购</h1>
+    <!-- 搜索按钮 -->
+    <a href="./search.html" id="search" class="mui-pull-right lt-header-search">
+      <span class="fa fa-search"></span>
+    </a>
+  </header>
+
+  <!-- 内容区域 -->
+  <main class="mui-content">
+    <div class="lt-search">
+      <!-- 搜索框 -->
+      <div class="lt-search-box">
+          <input type="text" placeholder="搜索你喜欢的商品">
+          <span class="lt-search-btn">搜索</span>
+      </div>
+      <!-- 历史搜索词 -->
+      <div class="lt-search-history">
+        
+      </div>
+      <!-- 搜索结果 -->
+      <div class="lt-search-result"></div>
+    </div>
+  </main>
+
+  <!-- 底部工具栏 -->
+  <!-- <footer class="mui-bar mui-bar-tab lt-tool">
+    <a class="mui-tab-item lt-tool-home ">
+      <span class="fa fa-home"></span>
+      <b class="lt-font-home">首页</b>
+    </a>
+    <a class="mui-tab-item lt-tool-sort mui-active">
+      <span class="fa fa-navicon"></span>
+      <b class="lt-font-sort">分类</b>
+    </a>
+    <a class="mui-tab-item  lt-tool-cart">
+      <span class="fa fa-shopping-cart"></span>
+      <b class="lt-font-cart">购物车</b>
+    </a>
+    <a class="mui-tab-item lt-tool-user ">
+      <span class="fa fa-user"></span>
+      <b class="lt-font-user">会员中心</b>
+    </a>
+  </footer> -->
+
+  <!-- 引入MUI库中的插件 -->
+  <script src="./lib/mui/js/mui.js"></script>
+  <!-- 引入模板引擎库 -->
+  <script src="./lib/artTemplate/template-native.js"></script>
+  <!-- 引入zepto库 -->
+  <script src="./lib/zepto/zepto.min.js"></script>
+  <!-- 引入工具javascript -->
+  <script src="./js/common.js"></script>
+  <!-- 引入首页的javascript -->
+  <script src="./js/search.js"></script>
+</body>
+
+</html>
