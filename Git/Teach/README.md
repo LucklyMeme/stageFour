@@ -25,9 +25,61 @@
   ![分布式版本控制系统](./images/fenbushibanbenkongzhixitong.png)
 ## 安装Git
 
-  
+  > 在Linux上安装Git
 
-## 创建版本库
+    1. 如果碰到Ubuntu或Debian 请使用下面命令:
+       
+       $ git  //这条命令检查系统中是否有Git
+
+       sudo apt-get install git  // 如果没有,则使用这条命令来进行安装Git
+
+    2. 如果碰到的是 CentOS 请使用下面命令:
+
+      $ git  // 这条命令检查系统中是否有Git
+
+      sudo yum install git
+
+
+
+  > 在Windows上安装Git
+
+    1. 如果是32位系统 请使用安装包
+
+       [32位系统的Git](./Other/Git-2.14.3-32-bit.exe)  
+
+    2. 如果是64位系统 请使用安装包
+
+       [64位系统的Git](./Other/Git-2.14.3-64-bit.exe)  
+  > 在Mac OS 上安装Git
+
+    自己上Git官网搜索
+
+
+
+## 创建版本库(repository)
+
+  > 1. 选择一个合适的地方,创建一个空目录
+
+    # 打开命令行工具,输入命令 代表新建了一个名字为Git的文件夹
+
+    mkdir  Git     
+
+    # 进入Git文件夹中
+
+    cd Git
+
+    # 查看该文件夹的绝对位置(在windows中) **如果看到输入的pwd中有中文 请确保你的路径中没有中文**
+
+    pwd
+
+  > 2. 把刚才创建的文件夹目录变成Git可以管理的仓库
+
+    # 初始化仓库
+    git init   
+
+    # 如果你的文件夹中没有任何内容将会得到如下输出结果 代表是初始化了一个空的Git仓库
+    Initialized empty Git repository in G:/Git/.git/
+
 
 ## 版本回退
 
