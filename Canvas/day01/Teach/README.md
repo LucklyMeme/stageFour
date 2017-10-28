@@ -39,146 +39,38 @@
   ![坐标系图](./images/coords.png)
 
     1.二维直角坐标系 以左上角为(0,0)点,X轴的正方向向右,Y轴的正方向向下
-## 绘制的基本步骤
-  > 1.布置画布:添加canvas元素
+## 从线段开始
+   
+   > 1. 在HTML中添加画布
 
-  ```html
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>给页面添加一个Canvas</title>
-      </head>
-      <body>
-        <canvas  style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;" width="600" height="600">
-          你的浏览器居然不支持Canvas？！赶快换一个吧！！
-        </canvas>
-      </body>
-    </html>
-  ```
-  > 2.获取画布:获得canvas对象
+   > 2. 通过js方法获取画布元素
 
-  ```html
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>给页面添加一个Canvas</title>
-      </head>
-      <body>
-        <canvas  style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;" width="800" height="600">
-          你的浏览器居然不支持Canvas？！赶快换一个吧！！
-        </canvas>
-        <script>
-          var canvas = document.querySelector('canvas');
-        </script>
-      </body>
-    </html>
-  ```
-  > 3.获得画笔(2D环境):通过canvas对象的getContext("2d")方法，获得2D环境
+   > 3. 通过canvas元素来获取画笔
 
-  ```html
-    <!DOCTYPE html>
-    <html lang="en">
-      <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>给页面添加一个Canvas</title>
-      </head>
-      <body>
-        <canvas  style="border: 1px solid #aaaaaa; display: block; margin: 50px auto;" width="800" height="600">
-          你的浏览器居然不支持Canvas？！赶快换一个吧！！
-        </canvas>
-        <script>
-          var canvas = document.querySelector('canvas');
-          var content = canvas.getContext('2d');
-        </script>
-      </body>
-    </html>
-  ```  
-## 绘制一条线段
+   > 4. 移动画笔,使画笔移动至绘画的开始处
 
-  > 1.在html中添加画布
+   > 5. 确定第一笔的停止点
 
-  > 2.获取画布元素
+   > 6. 规划好之后,选择画笔(包括画笔的粗细和颜色等等)
 
-  > 3.获取画笔
+   > 7. 确定绘制(描边)
 
-  > 4.计划画笔的起始点
-
-    context.moveTo(X,Y);
-
-  > 5.计划画笔的停止点
-
-    context.lineTo(X,Y);
-
-  > 6.把计划的点连接起来(描边)
-
-    context.stroke()
-## 设置线的样式
-
-  > 设置线宽
-
-    context.lineWidth = value (value为number类型的值,1 2 3 4等)
-
-  > 设置颜色
-
-    context.strokeStyle = value (value为颜色)
-
-  > 设置线末端类型
-
-    context.lineCap = value (value可以为 butt(默认) round(圆角) square(方角))
-
-  > 设置相交线的拐点
-
-    context.lineJoin = value (value可以为 miter(默认) round(圆角) bevel)
-## 绘制一个矩形块(有填充颜色的)
-
-  > 设置填充
-
-    context.fill()
-## 非零环绕原则
-
-  > 非零环绕原则
-    如果需要判断某一个区域是否需要填充颜色. 就从该区域中随机的选取一个点。从这个点拉一条直线出来, 一定要拉到图形的外面. 此时以该点为圆心。看穿过拉出的直线的线段. 如果是顺时针方向就记为 +1, 如果是逆时针方向，就记为 -1. 最终看求和的结果. 如果是 0 就不填充. 如果是非零就填充.
-
-  ![非零环绕原则](./images/feilinghuanrao.png)
-## 开启路径与关闭路径
-
-  > 开启路径
-
-    context.beginPath();  不是什么时候都用开启新路径的  而是要绘制不同的样式的样式的时候 才需要开启新路径
-    开启新路径是为了具体的设置不同图案的样式
-
-  > 关闭路径
-
-    关闭路径：指的时将同一个路径中的起点与终点相连接
-    context.closePath();
+## 多线条组成图形
 ## 绘制矩形
-
-  > 绘制矩形
-
-    context.rect( x, y, width, height );
-
-  > 描边矩形
-
-    context.strokeRect( x, y, width, height )
-
-  > 填充矩形
-
-    context.fillRect( x, y, width, height );
-## 清空矩形
-
-  > 清空矩形
-
-    context.cleartRect( x, y, width, height ); 在该区域创建了一个透明的矩形而已，不能填充颜色
-## 绘制一条虚线
-
-  > 绘制虚线
-
-    context.setLineDash();
+## 线条的属性
+## 填充颜色
+## 填充纹理
+## 绘制标准圆弧
+## 使用切点绘制圆弧
+## 二次贝塞尔曲线
+## 三次贝塞尔曲线
+## 平移变换
+## 旋转变换
+## 缩放变换
+## 矩阵变换
+## 文本显示与渲染
+## 文本对齐与度量
+## 全局阴影与图像合成
+## 裁剪和绘制图像
+## 非零环绕原则
+## 最后的API

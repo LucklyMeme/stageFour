@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>canvas绘制多条线</title>
+</head>
+
+<body>
+  <!-- > 1. 在HTML中添加画布 -->
+  <canvas></canvas>
+
+  <script>
+    // > 2. 通过js方法获取画布元素(还可以设置画布的大小及线条)
+    var canvas = document.querySelector('canvas');
+    canvas.width = 600;
+    canvas.height = 400;
+    canvas.style.border = '1px solid #ff0000';
+    // > 3. 通过canvas元素来获取画笔
+    var context = canvas.getContext('2d');
+    // > 4. 移动画笔,使画笔移动至绘画的开始处
+    context.moveTo(20, 20);
+    // > 5. 确定第一笔的停止点
+    context.lineTo(300, 300);
+    // > 6. 规划好之后,选择画笔(包括画笔的粗细和颜色等等)
+    context.strokeStyle = 'red'; // 画笔颜色
+    context.lineWidth = 5;
+    // > 7. 确定绘制(描边)
+    context.stroke();
+  </script>
+
+</body>
+
+</html>
