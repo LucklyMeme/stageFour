@@ -58,24 +58,21 @@
   > 1. 选择一个合适的地方,创建一个空目录
 
     # 打开命令行工具,输入命令 代表新建了一个名字为Git的文件夹
-
-    mkdir  Git     
+      mkdir  Git     
 
     # 进入Git文件夹中
-
-    cd Git
+      cd Git
 
     # 查看该文件夹的绝对位置(在windows中) **如果看到输入的pwd中有中文 请确保你的路径中没有中文**
-
-    pwd
+      pwd
 
   > 2. 把刚才创建的文件夹目录变成Git可以管理的仓库
 
     # 初始化仓库
-    git init   
+      git init   
 
     # 如果你的文件夹中没有任何内容将会得到如下输出结果 代表是初始化了一个空的Git仓库
-    Initialized empty Git repository in G:/Git/.git/
+      Initialized empty Git repository in G:/Git/.git/
 
 ## 版本回退
   > 1. 创建一个文件,并把该文件提交修改到Git版本库
@@ -103,8 +100,8 @@
   > 5. 回到某一次的提交
     
     # 回到某一次提交就要找到某一次提交的id ,使用fit reflog可以查看自己的命令id
-
       git reset --hard id号
+      
 ## 工作区和暂存区
 
 ## 管理修改
